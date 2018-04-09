@@ -1,0 +1,32 @@
+.thread {
+  font-family: monospace;
+}
+
+.thread li {
+  display: inline;
+  list-style-type: none;
+}
+
+.thread .name:before, .thread .name:after {
+  content: '"';
+}
+
+.thread .prio:before {
+  content: 'prio=';
+}
+
+.thread .tid:before {
+  content: 'tid=';
+}
+
+.thread .nid:before {
+  content: 'nid=';
+}
+
+.thread .id:before {
+  content: '[';
+}
+
+.thread .id:after {
+  content: ']';
+}

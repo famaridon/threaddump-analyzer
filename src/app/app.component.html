@@ -4,11 +4,5 @@
   <input type="file" (change)="onFileChange($event)" >
 </div>
 
-<div *ngIf="threaddump | async as td">
-  <pre>
-    {{td.date}}
-    {{td.description}}
-  </pre>
-  <app-thread-details *ngFor="let thread of td.threads" [thread]="thread"></app-thread-details>
-</div>
+<app-threaddump *ngIf="threaddump | async as td" [threaddump]="td" ></app-threaddump>
 

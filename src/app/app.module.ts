@@ -10,13 +10,15 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {AnalyzerService} from './analyzer.service';
 import { ThreadDetailsComponent } from './thread-details/thread-details.component';
+import { ThreaddumpComponent } from './threaddump/threaddump.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ThreadDetailsComponent
+    ThreadDetailsComponent,
+    ThreaddumpComponent
   ],
   imports: [
     FormsModule,

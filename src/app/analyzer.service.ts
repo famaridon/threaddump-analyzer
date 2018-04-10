@@ -10,7 +10,13 @@ export class AnalyzerService {
   public static readonly THREAD_HEADER_DETECT_REGEX = /^"(.*)".*(tid=).*/;
   public static readonly THREAD_HEADER_PARSE_REGEX = /^"(.*)"(?: (daemon))?(?: (prio)=([0-9]*))?(?: (tid)=([0-9a-z]*))?(?: (nid)=([0-9a-z]*))?(?: (runnable|waiting on condition|in [a-zA-Z.()]*))?(?: \[([0-9a-z]*)\])?/;
 
-  public static readonly THREAD_STACK_DETECT_REGEX = /^\sat/;
+  public static readonly THREAD_SIMPLE_STACK_DETECT_REGEX = /^\sat/;
+
+  public static readonly THREAD_LOCKED_STACK_DETECT_REGEX = /^\s- locked <[0-9a-z]*>/;
+  public static readonly THREAD_LOCKED_STACK_PARSE_REGEX = /^\s- locked <([0-9a-z]*)> \((a .*)\)/;
+
+  public static readonly THREAD_WAINTING_TO_LOCK_STACK_DETECT_REGEX = /^\s- waiting to lock <[0-9a-z]*>\)/;
+  public static readonly THREAD_WAINTING_TO_LOCK_STACK_PARSE_REGEX = /^^\s- waiting to lock <([0-9a-z]*)> \((a .*)\)\)/;
 
 
   public static readonly THREAD_STATE_REGEX = / *java\.lang\.Thread\.State: (WAITING|NEW|RUNNABLE|BLOCKED|WAITING|TERMINATED|TIMED_WAITING)(?: \(on object monitor\))?/;
@@ -52,8 +58,12 @@ export class AnalyzerService {
         this.parseThreadHeader(thread, line);
       } else if (this.isThreadState(line)) {
         this.parseThreadState(thread, line);
-      } else if (this.isThreadStack(line)) {
-        this.parseThreadStack(thread, line);
+      } else if (this.isSimpleStack(line)) {
+        this.parseSimpleStack(thread, line);
+      } else if (this.isLockedStack(line)) {
+        this.parseLockedStack(thread, line);
+      } else if (this.isWaintingToLockStack(line)) {
+        this.parseWaintingToLockStack(thread, line);
       }
     }
 
@@ -98,12 +108,30 @@ export class AnalyzerService {
     thread.state = State[state[1]];
   }
 
-  private isThreadStack(line: string): boolean {
-    return AnalyzerService.THREAD_STACK_DETECT_REGEX.test(line);
+  private isSimpleStack(line: string): boolean {
+    return AnalyzerService.THREAD_SIMPLE_STACK_DETECT_REGEX.test(line);
   }
 
-  private parseThreadStack(thread: Thread, line: string): void {
-    thread.stack.push(line);
+  private parseSimpleStack(thread: Thread, line: string): void {
+    thread.stack.push(new SimpleStackEntry(line));
+  }
+
+  private isLockedStack(line: string): boolean {
+    return AnalyzerService.THREAD_LOCKED_STACK_DETECT_REGEX.test(line);
+  }
+
+  private parseLockedStack(thread: Thread, line: string): void {
+    const locked = AnalyzerService.THREAD_LOCKED_STACK_PARSE_REGEX.exec(line);
+    thread.stack.push(new LockedStackEntry(line, locked[1], locked[2]));
+  }
+
+  private isWaintingToLockStack(line: string): boolean {
+    return AnalyzerService.THREAD_WAINTING_TO_LOCK_STACK_DETECT_REGEX.test(line);
+  }
+
+  private parseWaintingToLockStack(thread: Thread, line: string): void {
+    const locked = AnalyzerService.THREAD_WAINTING_TO_LOCK_STACK_PARSE_REGEX.exec(line);
+    thread.stack.push(new WaintingToLockStackEntry(line, locked[1], locked[2]));
   }
 }
 
@@ -124,7 +152,44 @@ export class Thread {
   public nativeId: string;
   public in: string;
   public callstack: string;
-  public stack: string[] = [];
+  public stack: StackEntry[] = [];
+}
+
+export abstract class StackEntry {
+  public content: string;
+
+  constructor(content: string) {
+    this.content = content;
+  }
+}
+
+export class SimpleStackEntry extends StackEntry {
+  constructor(content: string) {
+    super(content);
+  }
+}
+
+export abstract class LockStackEntry extends StackEntry {
+  public lock: string;
+  public a: string;
+
+  constructor(content: string, lock: string, a: string) {
+    super(content);
+    this.lock = lock;
+    this.a = a;
+  }
+}
+
+export class LockedStackEntry extends LockStackEntry {
+  constructor(content: string, lock: string, a: string) {
+    super(content, lock, a);
+  }
+}
+
+export class WaintingToLockStackEntry extends LockStackEntry {
+  constructor(content: string, lock: string, a: string) {
+    super(content, lock, a);
+  }
 }
 
 export enum State {

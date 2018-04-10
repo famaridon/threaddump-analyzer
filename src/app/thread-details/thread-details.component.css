@@ -1,36 +1,56 @@
 .thread {
-  font-family: monospace;
+  margin-top: 20px;
 }
 
-.thread h2 li {
+h2 {
+  font-size: 15px;
+  margin: 0;
+}
+
+
+h2 li {
   display: inline;
   list-style-type: none;
 }
 
-.thread .name:before, .thread .name:after {
+h2 ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+.name:before, .name:after {
   content: '"';
 }
 
-.thread .prio:before {
+.prio:before {
   content: 'prio=';
 }
 
-.thread .tid:before {
+.tid:before {
   content: 'tid=';
 }
 
-.thread .nid:before {
+.nid:before {
   content: 'nid=';
 }
 
-.thread .id:before {
+.id:before {
   content: '[';
 }
 
-.thread .id:after {
+.id:after {
   content: ']';
 }
 
-.thread .stack li {
+.stack {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.stack li {
   list-style-type: none;
+}
+
+.state {
+  padding-left: 14px;
 }

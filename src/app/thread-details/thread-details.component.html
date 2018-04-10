@@ -10,7 +10,7 @@
       <li class="id" *ngIf="thread.callstack">{{thread.callstack}}</li>
     </ul>
   </h2>
-  <span *ngIf="thread.state" >java.lang.Thread.State: <span [ngClass]="thread.state">{{thread.state}}</span></span>
+  <div *ngIf="thread.state" class="state">java.lang.Thread.State: <span [ngClass]="thread.state">{{thread.state}}</span></div>
   <ul class="stack">
     <li *ngFor="let line of thread.stack">{{line.content}}</li>
   </ul>

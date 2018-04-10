@@ -3,8 +3,17 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class AnalyzerService {
 
-  public static readonly THREAD_HEADER_REGEX = /^"(.*)"(?: (daemon))?(?: (prio)=([0-9]*))?(?: (tid)=([0-9a-z]*))?(?: (nid)=([0-9a-z]*))?(?: (runnable|waiting on condition|in [a-zA-Z.()]*))?(?: \[([0-9a-z]*)\])?/;
-  public static readonly THREAD_STATE_REGEX = / *java\.lang\.Thread\.State: (WAITING|NEW|RUNNABLE|BLOCKED|WAITING|TERMINATED|TIMED_WAITING)(?: \(on object monitor\))/;
+  /**
+   * a thread header line can be detected by "<thread-name>" and id=
+   * @type {RegExp}
+   */
+  public static readonly THREAD_HEADER_DETECT_REGEX = /^"(.*)".*(tid=).*/;
+  public static readonly THREAD_HEADER_PARSE_REGEX = /^"(.*)"(?: (daemon))?(?: (prio)=([0-9]*))?(?: (tid)=([0-9a-z]*))?(?: (nid)=([0-9a-z]*))?(?: (runnable|waiting on condition|in [a-zA-Z.()]*))?(?: \[([0-9a-z]*)\])?/;
+
+  public static readonly THREAD_STACK_DETECT_REGEX = /^\sat/;
+
+
+  public static readonly THREAD_STATE_REGEX = / *java\.lang\.Thread\.State: (WAITING|NEW|RUNNABLE|BLOCKED|WAITING|TERMINATED|TIMED_WAITING)(?: \(on object monitor\))?/;
 
   constructor() {
   }
@@ -43,6 +52,8 @@ export class AnalyzerService {
         this.parseThreadHeader(thread, line);
       } else if (this.isThreadState(line)) {
         this.parseThreadState(thread, line);
+      } else if (this.isThreadStack(line)) {
+        this.parseThreadStack(thread, line);
       }
     }
 
@@ -50,11 +61,11 @@ export class AnalyzerService {
   }
 
   private isThreadHeader(line: string): boolean {
-    return AnalyzerService.THREAD_HEADER_REGEX.test(line);
+    return AnalyzerService.THREAD_HEADER_DETECT_REGEX.test(line);
   }
 
   private parseThreadHeader(thread: Thread, line: string): void {
-    const header = AnalyzerService.THREAD_HEADER_REGEX.exec(line);
+    const header = AnalyzerService.THREAD_HEADER_PARSE_REGEX.exec(line);
     thread.name = header[1];
     // loop over header parts
     for (let j = 2; j < header.length - 1; j++) {
@@ -64,18 +75,18 @@ export class AnalyzerService {
       if (header[j] === 'daemon') {
         thread.daemon = true;
       } else if (header[j] === 'prio') {
-        thread.prio = header[j + 1];
+        thread.priority = header[j + 1];
       } else if (header[j] === 'tid') {
-        thread.tid = header[j + 1];
+        thread.id = header[j + 1];
       } else if (header[j] === 'nid') {
-        thread.nid = header[j + 1];
+        thread.nativeId = header[j + 1];
       } else if (header[j] === 'in') {
         thread.in = header[j + 1];
       } else if (header[j] === 'runnable' || header[j] === 'waiting on condition' || header[j].startsWith('in ')) {
         thread.status = header[j];
       }
     }
-    thread.id = header[header.length - 1];
+    thread.callstack = header[header.length - 1];
   }
 
   private isThreadState(line: string): boolean {
@@ -85,6 +96,14 @@ export class AnalyzerService {
   private parseThreadState(thread: Thread, line: string): void {
     const state = AnalyzerService.THREAD_STATE_REGEX.exec(line);
     thread.state = State[state[1]];
+  }
+
+  private isThreadStack(line: string): boolean {
+    return AnalyzerService.THREAD_STACK_DETECT_REGEX.test(line);
+  }
+
+  private parseThreadStack(thread: Thread, line: string): void {
+    thread.stack.push(line);
   }
 }
 
@@ -100,11 +119,12 @@ export class Thread {
   public daemon = false;
   public status: string;
   public state: State;
-  public prio: string;
-  public tid: string;
-  public nid: string;
-  public in: string;
+  public priority: string;
   public id: string;
+  public nativeId: string;
+  public in: string;
+  public callstack: string;
+  public stack: string[] = [];
 }
 
 export enum State {

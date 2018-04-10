@@ -1,12 +1,17 @@
 <div class="thread">
-  <ul>
-    <li class="name">{{thread.name}}</li>
-    <li class="daemon" *ngIf="thread.daemon">daemon</li>
-    <li class="prio" *ngIf="thread.prio">{{thread.prio}}</li>
-    <li class="tid" *ngIf="thread.tid">{{thread.tid}}</li>
-    <li class="nid" *ngIf="thread.nid">{{thread.nid}}</li>
-    <li class="status" *ngIf="thread.status">{{thread.status}}</li>
-    <li class="id" *ngIf="thread.id">{{thread.id}}</li>
+  <h2>
+    <ul>
+      <li class="name">{{thread.name}}</li>
+      <li class="daemon" *ngIf="thread.daemon">daemon</li>
+      <li class="prio" *ngIf="thread.priority">{{thread.priority}}</li>
+      <li class="tid" *ngIf="thread.id">{{thread.id}}</li>
+      <li class="nid" *ngIf="thread.nativeId">{{thread.nativeId}}</li>
+      <li class="status" *ngIf="thread.status">{{thread.status}}</li>
+      <li class="id" *ngIf="thread.callstack">{{thread.callstack}}</li>
+    </ul>
+  </h2>
+  <span *ngIf="thread.state" >java.lang.Thread.State: <span [ngClass]="thread.state">{{thread.state}}</span></span>
+  <ul class="stack">
+    <li *ngFor="let line of thread.stack">{{line}}</li>
   </ul>
-  <span *ngIf="thread.state">java.lang.Thread.State: {{thread.state}}</span>
 </div>

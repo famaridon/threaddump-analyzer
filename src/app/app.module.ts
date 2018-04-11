@@ -5,6 +5,7 @@ import {AsyncPipe} from '@angular/common';
 
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 import {AppComponent} from './app.component';
@@ -37,7 +38,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatButtonModule,
     MatCheckboxModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTabsModule
   ],
   entryComponents: [SimpleStackComponent, LockedStackComponent, UnknownStackComponent],
   providers: [ParserService],

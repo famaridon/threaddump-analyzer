@@ -8,7 +8,7 @@ import {ParserService, Threaddump} from './services/parser.service';
 })
 export class AppComponent {
 
-  threaddump: Promise<Threaddump> | null;
+  public threaddumps: Promise<Threaddump>[] = [];
 
   constructor(private parserService: ParserService) {
   }
@@ -16,8 +16,9 @@ export class AppComponent {
   public onFileChange(event) {
 
     if (event.target.files && event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.threaddump = this.parserService.load(file);
+      for (let i = 0; i < event.target.files.length; i++) {
+        this.threaddumps.push(this.parserService.load(event.target.files[i]));
+      }
     }
   }
 

@@ -3,13 +3,20 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened>
     <div>
-      Start <input type="file" (change)="onFileChange($event)" >
+      <input type="file" (change)="onFileChange($event)" multiple>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
 
 
-    <app-threaddump *ngIf="threaddump | async as td" [threaddump]="td" ></app-threaddump>
+    <mat-tab-group>
+      <ng-container *ngFor="let promise of threaddumps">
+        <mat-tab [label]="threaddump.name" *ngIf="promise | async as threaddump" >
+          <app-threaddump  [threaddump]="threaddump" ></app-threaddump>
+        </mat-tab>
+      </ng-container>
+    </mat-tab-group>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 

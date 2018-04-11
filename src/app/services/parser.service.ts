@@ -32,7 +32,9 @@ export class ParserService {
       reader.onload = (e) => {
         const threaddumpParser = new ThreaddumpParser();
         threaddumpParser.parse(reader.result);
-        resolve(threaddumpParser.getThreaddump());
+        const threaddump = threaddumpParser.getThreaddump();
+        threaddump.name = file.name;
+        resolve(threaddump);
       };
       reader.onerror = (error) => {
         reject(error);

@@ -1,8 +1,17 @@
 <app-header></app-header>
 
-<div>
-  <input type="file" (change)="onFileChange($event)" >
-</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <div>
+      Start <input type="file" (change)="onFileChange($event)" >
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
 
-<app-threaddump *ngIf="threaddump | async as td" [threaddump]="td" ></app-threaddump>
+
+    <app-threaddump *ngIf="threaddump | async as td" [threaddump]="td" ></app-threaddump>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
 

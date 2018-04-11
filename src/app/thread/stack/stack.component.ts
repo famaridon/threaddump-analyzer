@@ -1,8 +1,8 @@
 import {Component, ComponentFactoryResolver, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {LockedStackEntry, SimpleStackEntry, StackEntry} from '../../analyzer.service';
 import {UnknownStackComponent} from './unknown-stack/unknown-stack.component';
 import {SimpleStackComponent} from './simple-stack/simple-stack.component';
 import {LockedStackComponent} from './locked-stack/locked-stack.component';
+import {LockedStackEntry, SimpleStackEntry, StackEntry} from '../../services/parser.service';
 
 @Component({
   selector: 'app-stack',
@@ -27,7 +27,7 @@ export class StackComponent implements OnInit, OnDestroy {
     const componentType = this.getComponentType();
     const factory = this.componentFactoryResolver.resolveComponentFactory(componentType);
     this.componentRef = this.container.createComponent(factory);
-    const instance = <StackComponentRender> this.componentRef.instance;
+    const instance = <StackComponentRender<StackEntry>> this.componentRef.instance;
     instance.setstackEntry(this.stackEntry);
   }
 

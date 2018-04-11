@@ -8,13 +8,13 @@ import {MatButtonModule, MatCheckboxModule, MatToolbarModule} from '@angular/mat
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
-import {AnalyzerService} from './analyzer.service';
 import {ThreaddumpComponent} from './threaddump/threaddump.component';
 import {StackComponent} from './thread/stack/stack.component';
 import {ThreadDetailsComponent} from './thread/thread-details/thread-details.component';
 import {SimpleStackComponent} from './thread/stack/simple-stack/simple-stack.component';
 import {UnknownStackComponent} from './thread/stack/unknown-stack/unknown-stack.component';
 import {LockedStackComponent} from './thread/stack/locked-stack/locked-stack.component';
+import {ParserService} from './services/parser.service';
 
 
 @NgModule({
@@ -36,7 +36,7 @@ import {LockedStackComponent} from './thread/stack/locked-stack/locked-stack.com
     MatToolbarModule
   ],
   entryComponents: [SimpleStackComponent, LockedStackComponent, UnknownStackComponent],
-  providers: [AnalyzerService],
+  providers: [ParserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

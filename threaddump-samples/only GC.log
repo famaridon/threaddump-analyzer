@@ -1,0 +1,23 @@
+2018-04-06 11:20:12
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (21.1-b02 mixed mode):
+
+"main" prio=6 tid=0x000000000034c000 nid=0x86c runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"VM Thread" prio=10 tid=0x000000000a092800 nid=0xd20 runnable 
+
+"GC task thread#0 (ParallelGC)" prio=6 tid=0x0000000001011000 nid=0xc10 runnable 
+
+"GC task thread#1 (ParallelGC)" prio=6 tid=0x0000000001013000 nid=0xc14 runnable 
+
+"GC task thread#2 (ParallelGC)" prio=6 tid=0x0000000001014800 nid=0xc18 runnable 
+
+"GC task thread#3 (ParallelGC)" prio=6 tid=0x0000000001017000 nid=0xc1c runnable 
+
+"VM Periodic Task Thread" prio=10 tid=0x000000000a145800 nid=0xd64 waiting on condition 
+
+JNI global references: 700
+

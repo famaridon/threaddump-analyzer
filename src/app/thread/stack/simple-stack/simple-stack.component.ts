@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractStackComponent} from '../abstract-stack.component';
-import {SimpleStackEntry} from '../../../analyzer.service';
+import {SimpleStackEntry} from '../../../services/parser.service';
 
 @Component({
   selector: 'app-simple-stack',

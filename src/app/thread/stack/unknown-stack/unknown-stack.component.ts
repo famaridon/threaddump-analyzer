@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {StackComponentRender} from '../stack.component';
-import {StackEntry} from '../../../analyzer.service';
 import {AbstractStackComponent} from '../abstract-stack.component';
+import {StackEntry} from '../../../services/parser.service';
 
 @Component({
   selector: 'app-unknown-stack',

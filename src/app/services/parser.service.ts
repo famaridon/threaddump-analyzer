@@ -1,5 +1,15 @@
 import {Injectable} from '@angular/core';
 
+import {Threaddump} from './threaddump';
+import {Thread, State} from './thread';
+import {SimpleStackEntry} from './stack.entry';
+import {LockEntry} from './lock.entry';
+
+export * from './threaddump';
+export * from './thread';
+export * from './stack.entry';
+export * from './lock.entry';
+
 export let THREAD_BLANK_LINE_DETECT_REGEX = /^\s*$/;
 
 /**
@@ -235,80 +245,4 @@ export class ThreadLocksParserStage implements ThreadParseStage {
   nextStage(): ThreadParseStage {
     return this;
   }
-}
-
-export class Threaddump {
-  public date: Date;
-  public description: string;
-  public threads: Thread[] = [];
-}
-
-
-export class Thread {
-  public name: string;
-  public daemon = false;
-  public status: string;
-  public state: State;
-  public priority: string;
-  public id: string;
-  public nativeId: string;
-  public in: string;
-  public callstack: string;
-  public stack: StackEntry[] = [];
-  public lock: LockEntry[] = [];
-}
-
-export class LockEntry {
-  public content: string;
-
-  constructor(content: string) {
-    this.content = content;
-  }
-}
-
-export abstract class StackEntry {
-  public content: string;
-
-  constructor(content: string) {
-    this.content = content;
-  }
-}
-
-export class SimpleStackEntry extends StackEntry {
-  constructor(content: string) {
-    super(content);
-  }
-}
-
-export abstract class LockStackEntry extends StackEntry {
-  public lock: string;
-  public a: string;
-
-  constructor(content: string, lock: string, a: string) {
-    super(content);
-    this.lock = lock;
-    this.a = a;
-  }
-}
-
-export class LockedStackEntry extends LockStackEntry {
-  constructor(content: string, lock: string, a: string) {
-    super(content, lock, a);
-  }
-}
-
-export class WaintingToLockStackEntry extends LockStackEntry {
-  constructor(content: string, lock: string, a: string) {
-    super(content, lock, a);
-  }
-}
-
-export enum State {
-  NEW = 'NEW',
-  RUNNABLE = 'RUNNABLE',
-  BLOCKED = 'BLOCKED',
-  WAITING = 'WAITING',
-  TERMINATED = 'TERMINATED',
-  TIMED_WAITING = 'TIMED_WAITING'
-
 }

@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 
+export let THREAD_BLANK_LINE_DETECT_REGEX = /^\s*$/;
+
 @Injectable()
 export class ParserService {
 
@@ -11,9 +13,7 @@ export class ParserService {
       const reader = new FileReader();
       reader.onload = (e) => {
         const threaddumpParser = new ThreaddumpParser();
-
         threaddumpParser.parse(reader.result);
-
         resolve(threaddumpParser.getThreaddump());
       };
       reader.onerror = (error) => {
@@ -163,7 +163,7 @@ export class ThreadStateParserStage implements ThreadParseStage {
   }
 
   public parseNextLine(thread: Thread, line: string): ThreadParseResult {
-    if ('' === line) {
+    if (THREAD_BLANK_LINE_DETECT_REGEX.test(line)) {
       return ThreadParseResult.COMPLETED;
     }
     this.nextThreadParseStage = new ThreadStackParserStage();
@@ -190,7 +190,7 @@ export class ThreadStackParserStage implements ThreadParseStage {
   }
 
   public parseNextLine(thread: Thread, line: string): ThreadParseResult {
-    if ('' === line) {
+    if (THREAD_BLANK_LINE_DETECT_REGEX.test(line)) { // test blank line
       this.nextThreadParseStage = new ThreadLocksParserStage();
       return ThreadParseResult.CONTINUE;
     }
@@ -205,13 +205,19 @@ export class ThreadStackParserStage implements ThreadParseStage {
 
 export class ThreadLocksParserStage implements ThreadParseStage {
 
+  public static readonly LOCK_HEADER_DETECT_REGEX = /^\s*Locked ownable synchronizers:\s*$/;
+
   public canParse(line: string): boolean {
     return true;
   }
 
   parseNextLine(thread: Thread, line: string): ThreadParseResult {
-    if ('' === line) {
+    if (THREAD_BLANK_LINE_DETECT_REGEX.test(line)) { // test blank line
       return ThreadParseResult.COMPLETED;
+    }
+
+    if (ThreadLocksParserStage.LOCK_HEADER_DETECT_REGEX.test(line)) {
+      return ThreadParseResult.CONTINUE;
     }
 
     thread.lock.push(new LockEntry(line));

@@ -15,7 +15,7 @@
     <li *ngFor="let stackEntry of thread.stack"><app-stack [stackEntry]="stackEntry"></app-stack></li>
   </ul>
 
-  <div>
+  <div *ngIf="thread?.lock?.length > 0" class="lock">
     Locked ownable synchronizers:
     <ul>
       <li *ngFor="let lockEntry of thread.lock">{{lockEntry.content}}</li>

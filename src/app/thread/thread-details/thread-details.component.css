@@ -55,3 +55,18 @@ h2 ul {
 .state {
   padding-left: 14px;
 }
+
+.lock {
+  margin-top: 15px;
+  padding-left: 14px;
+}
+
+.lock ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.lock li {
+  display: inline;
+  list-style-type: none;
+}

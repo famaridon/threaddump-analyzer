@@ -12,7 +12,7 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng build --prod
+  - ng build --prod --base-href /threaddump-analyzer/
 
 deploy:
   provider: pages

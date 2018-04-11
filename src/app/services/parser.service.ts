@@ -2,12 +2,20 @@ import {Injectable} from '@angular/core';
 
 export let THREAD_BLANK_LINE_DETECT_REGEX = /^\s*$/;
 
+/**
+ * this service add ability to parse thread dump as object
+ */
 @Injectable()
 export class ParserService {
 
   constructor() {
   }
 
+  /**
+   * promise to parse thread dump file
+   * @param {File} file
+   * @returns {Promise<Threaddump>}
+   */
   public load(file: File): Promise<Threaddump> {
     return new Promise<Threaddump>((resolve, reject) => {
       const reader = new FileReader();

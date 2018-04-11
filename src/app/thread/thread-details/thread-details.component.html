@@ -12,6 +12,6 @@
   </h2>
   <div *ngIf="thread.state" class="state">java.lang.Thread.State: <span [ngClass]="thread.state">{{thread.state}}</span></div>
   <ul class="stack">
-    <li *ngFor="let line of thread.stack">{{line.content}}</li>
+    <li *ngFor="let stackEntry of thread.stack"><app-stack [stackEntry]="stackEntry"></app-stack></li>
   </ul>
 </div>

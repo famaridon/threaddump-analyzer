@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Thread, Threaddump} from '../analyzer.service';
+import {Thread} from '../../analyzer.service';
 
 @Component({
   selector: 'app-thread-details',

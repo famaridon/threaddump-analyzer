@@ -1,4 +1,4 @@
-import {LockEntry} from './lock.entry';
+import {LockSynchronizeEntry} from './lock.synchronize.entry';
 import {StackEntry} from './stack.entry';
 
 export class Thread {
@@ -12,7 +12,7 @@ export class Thread {
   public in: string;
   public callstack: string;
   public stack: StackEntry[] = [];
-  public lock: LockEntry[] = [];
+  public lock: LockSynchronizeEntry[] = [];
 }
 
 export enum State {

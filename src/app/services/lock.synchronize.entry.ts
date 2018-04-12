@@ -1,4 +1,4 @@
-export abstract class LockEntry {
+export abstract class LockSynchronizeEntry {
   private _content: string;
 
   constructor(content: string) {
@@ -10,7 +10,7 @@ export abstract class LockEntry {
   }
 }
 
-export class LockOwnableSynchronizersEntry extends LockEntry {
+export class LockOwnableSynchronizersEntry extends LockSynchronizeEntry {
   private _id: string;
   private _a: string;
 
@@ -30,7 +30,14 @@ export class LockOwnableSynchronizersEntry extends LockEntry {
   }
 }
 
-export class UnknowLockEntry extends LockEntry {
+export class NoneLockSynchronizeEntry extends LockSynchronizeEntry {
+  constructor(content: string) {
+    super(content);
+  }
+
+}
+
+export class UnknownLockSynchronizeEntry extends LockSynchronizeEntry {
   constructor(content: string) {
     super(content);
   }

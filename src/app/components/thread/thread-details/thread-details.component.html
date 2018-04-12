@@ -18,7 +18,7 @@
   <div *ngIf="thread?.lock?.length > 0" class="lock">
     Locked ownable synchronizers:
     <ul>
-      <li *ngFor="let lockEntry of thread.lock"><app-lock-synchronizer [lockSynchronize]="lockEntry"></app-lock-synchronizer></li>
+      <li *ngFor="let lockEntry of thread.lock"><app-lock-synchronizer [lockSynchronizer]="lockEntry"></app-lock-synchronizer></li>
     </ul>
   </div>
 

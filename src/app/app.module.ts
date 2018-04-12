@@ -26,6 +26,9 @@ import {LockedStackComponent} from './components/thread/stack/locked-stack/locke
 
 import { WaitingToLockStackComponent } from './components/thread/stack/waiting-to-lock-stack/waiting-to-lock-stack.component';
 import { LockSynchronizerComponent } from './components/thread/lock-synchronizer/lock-synchronizer.component';
+import { UnknonwnLockSynchonizerComponent } from './components/thread/lock-synchronizer/unknonwn-lock-synchonizer/unknonwn-lock-synchonizer.component';
+import { NoneLockSynchonizerComponent } from './components/thread/lock-synchronizer/none-lock-synchonizer/none-lock-synchonizer.component';
+import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchronizer/lock-ownable-synchonizer/lock-ownable-synchonizer.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { LockSynchronizerComponent } from './components/thread/lock-synchronizer
     UnknownStackComponent,
     LockedStackComponent,
     WaitingToLockStackComponent,
-    LockSynchronizerComponent
+    LockSynchronizerComponent,
+    UnknonwnLockSynchonizerComponent,
+    NoneLockSynchonizerComponent,
+    LockOwnableSynchonizerComponent
   ],
   imports: [
     FormsModule,
@@ -54,7 +60,15 @@ import { LockSynchronizerComponent } from './components/thread/lock-synchronizer
     MatTabsModule,
     MomentModule
   ],
-  entryComponents: [AtStackComponent, LockedStackComponent, UnknownStackComponent, WaitingToLockStackComponent],
+  entryComponents: [
+    AtStackComponent,
+    LockedStackComponent,
+    UnknownStackComponent,
+    WaitingToLockStackComponent,
+    UnknonwnLockSynchonizerComponent,
+    NoneLockSynchonizerComponent,
+    LockOwnableSynchonizerComponent
+  ],
   providers: [ParserService],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LockOwnableSynchronizersEntry} from '../../services/lock.synchronize.entry';
+import {LockOwnableSynchronizersEntry} from '../../../services/lock.synchronize.entry';
 
 @Component({
   selector: 'app-lock-synchronizer',

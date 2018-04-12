@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Thread} from '../../services/parser.service';
+import {Thread} from '../../../services/thread';
 
 @Component({
   selector: 'app-thread-details',

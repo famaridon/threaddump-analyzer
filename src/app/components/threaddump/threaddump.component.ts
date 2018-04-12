@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Threaddump} from '../services/parser.service';
+import {Threaddump} from '../../services/threaddump';
 
 @Component({
   selector: 'app-threaddump',

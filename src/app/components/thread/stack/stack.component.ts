@@ -2,8 +2,8 @@ import {Component, ComponentFactoryResolver, ComponentRef, Input, OnDestroy, OnI
 import {UnknownStackComponent} from './unknown-stack/unknown-stack.component';
 import {AtStackComponent} from './at-stack/at-stack.component';
 import {LockedStackComponent} from './locked-stack/locked-stack.component';
-import {LockedStackEntry, AtStackEntry, StackEntry} from '../../services/parser.service';
-import {WaintingToLockStackEntry} from '../../services/stack.entry';
+import {LockedStackEntry, AtStackEntry, StackEntry} from '../../../services/stack.entry';
+import {WaintingToLockStackEntry} from '../../../services/stack.entry';
 import {WaitingToLockStackComponent} from './waiting-to-lock-stack/waiting-to-lock-stack.component';
 
 @Component({

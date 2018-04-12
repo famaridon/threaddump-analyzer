@@ -1,5 +1,5 @@
 import {StackComponentRender} from './stack.component';
-import {StackEntry} from '../../services/parser.service';
+import {StackEntry} from '../../../services/stack.entry';
 
 
 export abstract class AbstractStackComponent<T extends StackEntry> implements StackComponentRender<T> {

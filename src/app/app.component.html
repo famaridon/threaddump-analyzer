@@ -11,8 +11,20 @@
 
     <mat-tab-group>
       <ng-container *ngFor="let promise of threaddumps">
-        <mat-tab [label]="threaddump.name" *ngIf="promise | async as threaddump" >
-          <app-threaddump  [threaddump]="threaddump" ></app-threaddump>
+        <mat-tab *ngIf="promise | async as threaddump" >
+          <ng-template mat-tab-label>
+            {{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>delete_forever</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </ng-template>
+          <app-threaddump class="tab-content" [threaddump]="threaddump" ></app-threaddump>
         </mat-tab>
       </ng-container>
     </mat-tab-group>

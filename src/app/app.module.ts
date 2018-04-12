@@ -6,6 +6,8 @@ import {AsyncPipe} from '@angular/common';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 import {AppComponent} from './app.component';
@@ -18,6 +20,7 @@ import {UnknownStackComponent} from './thread/stack/unknown-stack/unknown-stack.
 import {LockedStackComponent} from './thread/stack/locked-stack/locked-stack.component';
 import {ParserService} from './services/parser.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MomentModule} from 'angular2-moment';
 
 
 @NgModule({
@@ -38,8 +41,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatButtonModule,
     MatCheckboxModule,
     MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    MomentModule
   ],
   entryComponents: [SimpleStackComponent, LockedStackComponent, UnknownStackComponent],
   providers: [ParserService],

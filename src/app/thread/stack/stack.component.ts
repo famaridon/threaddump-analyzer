@@ -3,6 +3,8 @@ import {UnknownStackComponent} from './unknown-stack/unknown-stack.component';
 import {AtStackComponent} from './at-stack/at-stack.component';
 import {LockedStackComponent} from './locked-stack/locked-stack.component';
 import {LockedStackEntry, AtStackEntry, StackEntry} from '../../services/parser.service';
+import {WaintingToLockStackEntry} from '../../services/stack.entry';
+import {WaitingToLockStackComponent} from './waiting-to-lock-stack/waiting-to-lock-stack.component';
 
 @Component({
   selector: 'app-stack',
@@ -36,6 +38,8 @@ export class StackComponent implements OnInit, OnDestroy {
       return AtStackComponent;
     } else if (this.stackEntry instanceof LockedStackEntry) {
       return LockedStackComponent;
+    } else if (this.stackEntry instanceof WaintingToLockStackEntry) {
+      return WaitingToLockStackComponent;
     }
     return UnknownStackComponent;
   }

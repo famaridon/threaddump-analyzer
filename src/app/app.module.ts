@@ -21,6 +21,7 @@ import {LockedStackComponent} from './thread/stack/locked-stack/locked-stack.com
 import {ParserService} from './services/parser.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MomentModule} from 'angular2-moment';
+import { WaitingToLockStackComponent } from './thread/stack/waiting-to-lock-stack/waiting-to-lock-stack.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MomentModule} from 'angular2-moment';
     StackComponent,
     AtStackComponent,
     UnknownStackComponent,
-    LockedStackComponent
+    LockedStackComponent,
+    WaitingToLockStackComponent
   ],
   imports: [
     FormsModule,
@@ -47,7 +49,7 @@ import {MomentModule} from 'angular2-moment';
     MatTabsModule,
     MomentModule
   ],
-  entryComponents: [AtStackComponent, LockedStackComponent, UnknownStackComponent],
+  entryComponents: [AtStackComponent, LockedStackComponent, UnknownStackComponent, WaitingToLockStackComponent],
   providers: [ParserService],
   bootstrap: [AppComponent]
 })

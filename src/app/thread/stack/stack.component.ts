@@ -1,8 +1,8 @@
 import {Component, ComponentFactoryResolver, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {UnknownStackComponent} from './unknown-stack/unknown-stack.component';
-import {SimpleStackComponent} from './simple-stack/simple-stack.component';
+import {AtStackComponent} from './at-stack/at-stack.component';
 import {LockedStackComponent} from './locked-stack/locked-stack.component';
-import {LockedStackEntry, SimpleStackEntry, StackEntry} from '../../services/parser.service';
+import {LockedStackEntry, AtStackEntry, StackEntry} from '../../services/parser.service';
 
 @Component({
   selector: 'app-stack',
@@ -32,8 +32,8 @@ export class StackComponent implements OnInit, OnDestroy {
   }
 
   getComponentType() {
-    if (this.stackEntry instanceof SimpleStackEntry) {
-      return SimpleStackComponent;
+    if (this.stackEntry instanceof AtStackEntry) {
+      return AtStackComponent;
     } else if (this.stackEntry instanceof LockedStackEntry) {
       return LockedStackComponent;
     }

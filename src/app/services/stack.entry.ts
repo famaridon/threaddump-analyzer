@@ -6,20 +6,43 @@ export abstract class StackEntry {
   }
 }
 
-export class SimpleStackEntry extends StackEntry {
+export class AtStackEntry extends StackEntry {
+  constructor(content: string) {
+    super(content);
+  }
+}
+
+export class UnknowStackEntry extends StackEntry {
   constructor(content: string) {
     super(content);
   }
 }
 
 export abstract class LockStackEntry extends StackEntry {
-  public lock: string;
-  public a: string;
+
+  private _lock: string;
+  private _a: string;
 
   constructor(content: string, lock: string, a: string) {
     super(content);
-    this.lock = lock;
-    this.a = a;
+    this._lock = lock;
+    this._a = a;
+  }
+
+  get lock(): string {
+    return this._lock;
+  }
+
+  set lock(value: string) {
+    this._lock = value;
+  }
+
+  get a(): string {
+    return this._a;
+  }
+
+  set a(value: string) {
+    this._a = value;
   }
 }
 

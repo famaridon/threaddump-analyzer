@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractStackComponent} from '../abstract-stack.component';
-import {LockedStackEntry, SimpleStackEntry} from '../../../services/parser.service';
+import {LockedStackEntry, AtStackEntry} from '../../../services/parser.service';
 
 @Component({
   selector: 'app-locked-stack',

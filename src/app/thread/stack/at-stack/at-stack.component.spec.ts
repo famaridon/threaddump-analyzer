@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SimpleStackComponent } from './simple-stack.component';
+import { AtStackComponent } from './at-stack.component';
 
-describe('SimpleStackComponent', () => {
-  let component: SimpleStackComponent;
-  let fixture: ComponentFixture<SimpleStackComponent>;
+describe('AtStackComponent', () => {
+  let component: AtStackComponent;
+  let fixture: ComponentFixture<AtStackComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SimpleStackComponent ]
+      declarations: [ AtStackComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SimpleStackComponent);
+    fixture = TestBed.createComponent(AtStackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

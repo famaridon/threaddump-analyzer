@@ -15,7 +15,7 @@ import {HeaderComponent} from './header/header.component';
 import {ThreaddumpComponent} from './threaddump/threaddump.component';
 import {StackComponent} from './thread/stack/stack.component';
 import {ThreadDetailsComponent} from './thread/thread-details/thread-details.component';
-import {SimpleStackComponent} from './thread/stack/simple-stack/simple-stack.component';
+import {AtStackComponent} from './thread/stack/at-stack/at-stack.component';
 import {UnknownStackComponent} from './thread/stack/unknown-stack/unknown-stack.component';
 import {LockedStackComponent} from './thread/stack/locked-stack/locked-stack.component';
 import {ParserService} from './services/parser.service';
@@ -30,7 +30,7 @@ import {MomentModule} from 'angular2-moment';
     ThreadDetailsComponent,
     ThreaddumpComponent,
     StackComponent,
-    SimpleStackComponent,
+    AtStackComponent,
     UnknownStackComponent,
     LockedStackComponent
   ],
@@ -47,7 +47,7 @@ import {MomentModule} from 'angular2-moment';
     MatTabsModule,
     MomentModule
   ],
-  entryComponents: [SimpleStackComponent, LockedStackComponent, UnknownStackComponent],
+  entryComponents: [AtStackComponent, LockedStackComponent, UnknownStackComponent],
   providers: [ParserService],
   bootstrap: [AppComponent]
 })

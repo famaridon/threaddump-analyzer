@@ -207,7 +207,7 @@ export class ThreadStackParserStage implements ThreadParseStage {
   public static readonly THREAD_AT_STACK_DETECT_REGEX = /^\s*at/;
 
   public static readonly THREAD_LOCKED_STACK_DETECT_REGEX = /^\s*- locked <[0-9a-z]*>/;
-  public static readonly THREAD_LOCKED_STACK_PARSE_REGEX = /^\s*- locked <([0-9a-z]*)> \((a .*)\)/;
+  public static readonly THREAD_LOCKED_STACK_PARSE_REGEX = /^\s*- locked <([0-9a-z]*)> \(a (.*)\)/;
 
   public static readonly THREAD_WAINTING_TO_LOCK_STACK_DETECT_REGEX = /^\s*- waiting to lock <[0-9a-z]*>/;
   public static readonly THREAD_WAINTING_TO_LOCK_STACK_PARSE_REGEX = /^\s*-\s*waiting to lock <([0-9a-z]*)> \(a (.*)\)/;

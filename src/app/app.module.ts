@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {AsyncPipe} from '@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatTabsModule, MatIconModule, MatMenuModule} from '@angular/material';
 
@@ -44,6 +46,7 @@ import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchr
     LockOwnableSynchonizerComponent
   ],
   imports: [
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
     BrowserModule,
     NoopAnimationsModule,

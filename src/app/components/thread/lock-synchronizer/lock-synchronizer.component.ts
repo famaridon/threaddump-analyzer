@@ -1,4 +1,14 @@
-import {Component, ComponentFactoryResolver, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ComponentFactoryResolver,
+  ComponentRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {LockOwnableSynchronizersEntry, LockSynchronizeEntry, NoneLockSynchronizeEntry} from '../../../services/lock.synchronize.entry';
 import {LockedStackComponent} from '../stack/locked-stack/locked-stack.component';
 import {AtStackComponent} from '../stack/at-stack/at-stack.component';
@@ -13,7 +23,8 @@ import {UnknonwnLockSynchonizerComponent} from './unknonwn-lock-synchonizer/unkn
 @Component({
   selector: 'app-lock-synchronizer',
   templateUrl: './lock-synchronizer.component.html',
-  styleUrls: ['./lock-synchronizer.component.css']
+  styleUrls: ['./lock-synchronizer.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LockSynchronizerComponent implements OnInit, OnDestroy {
 

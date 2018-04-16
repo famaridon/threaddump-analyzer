@@ -1,4 +1,14 @@
-import {Component, ComponentFactoryResolver, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ComponentFactoryResolver,
+  ComponentRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {UnknownStackComponent} from './unknown-stack/unknown-stack.component';
 import {AtStackComponent} from './at-stack/at-stack.component';
 import {LockedStackComponent} from './locked-stack/locked-stack.component';
@@ -9,7 +19,8 @@ import {WaitingToLockStackComponent} from './waiting-to-lock-stack/waiting-to-lo
 @Component({
   selector: 'app-stack',
   templateUrl: './stack.component.html',
-  styleUrls: ['./stack.component.css']
+  styleUrls: ['./stack.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StackComponent implements OnInit, OnDestroy {
 

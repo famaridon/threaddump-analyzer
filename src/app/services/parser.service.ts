@@ -35,11 +35,13 @@ export class ParserService {
     return new Promise<Threaddump>((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = (e) => {
+        window.console.profile(file.name);
         const threaddumpParser = new ThreaddumpParser();
         threaddumpParser.parse(reader.result);
         const threaddump = threaddumpParser.getThreaddump();
         threaddump.name = file.name;
         resolve(threaddump);
+        console.profileEnd();
       };
       reader.onerror = (error) => {
         reject(error);

@@ -1,14 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {AsyncPipe} from '@angular/common';
 
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule} from '@angular/material';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatTabsModule, MatIconModule, MatMenuModule} from '@angular/material';
 
 import {MomentModule} from 'angular2-moment';
 
@@ -50,7 +46,7 @@ import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchr
   imports: [
     FormsModule,
     BrowserModule,
-    BrowserAnimationsModule,
+    NoopAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatToolbarModule,

@@ -5,3 +5,8 @@
   left: 0;
   right: 0;
 }
+
+.d-none {
+  visibility: hidden;
+  height: 0;
+}

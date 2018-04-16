@@ -28,7 +28,6 @@ import { UnknonwnLockSynchonizerComponent } from './components/thread/lock-synch
 import { NoneLockSynchonizerComponent } from './components/thread/lock-synchronizer/none-lock-synchonizer/none-lock-synchonizer.component';
 import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchronizer/lock-ownable-synchonizer/lock-ownable-synchonizer.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +45,7 @@ import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchr
     LockOwnableSynchonizerComponent
   ],
   imports: [
-    ServiceWorkerModule.register('./ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
     BrowserModule,
     NoopAnimationsModule,

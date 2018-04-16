@@ -1,6 +1,6 @@
-<div class="threaddump">
-  <div class="date">{{threaddump.date}}</div>
-  <div class="desciption">{{threaddump.description}}</div>
-  <app-thread-details *ngFor="let thread of threaddump.threads" [thread]="thread"></app-thread-details>
-</div>
+<p class="threaddump">
+{{threaddump.date}}
+{{threaddump.description}}
+<app-thread-details *ngFor="let thread of threaddump.threads" [thread]="thread"></app-thread-details>
+</p>
 

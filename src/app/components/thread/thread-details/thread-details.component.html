@@ -1,25 +1,24 @@
-<div class="thread">
-  <h2 [id]="thread.id">
-    <ul>
-      <li class="name">{{thread.name}}</li>
-      <li class="daemon" *ngIf="thread.daemon">daemon</li>
-      <li class="prio" *ngIf="thread.priority">{{thread.priority}}</li>
-      <li class="tid" *ngIf="thread.id">{{thread.id}}</li>
-      <li class="nid" *ngIf="thread.nativeId">{{thread.nativeId}}</li>
-      <li class="status" *ngIf="thread.status">{{thread.status}}</li>
-      <li class="id" *ngIf="thread.callstack">{{thread.callstack}}</li>
-    </ul>
-  </h2>
-  <div *ngIf="thread.state" class="state">java.lang.Thread.State: <span [ngClass]="thread.state">{{thread.state}}</span></div>
-  <ul class="stack">
-    <li *ngFor="let stackEntry of thread.stack"><app-stack [stackEntry]="stackEntry"></app-stack></li>
-  </ul>
+<p class="thread" [id]="thread.id">
+  <span class="name">{{thread.name}}</span>
+  <span class="daemon" *ngIf="thread.daemon">daemon</span>
+  <span class="prio" *ngIf="thread.priority">{{thread.priority}}</span>
+  <span class="tid" *ngIf="thread.id">{{thread.id}}</span>
+  <span class="nid" *ngIf="thread.nativeId">{{thread.nativeId}}</span>
+  <span class="status" *ngIf="thread.status">{{thread.status}}</span>
+  <span class="id" *ngIf="thread.callstack">{{thread.callstack}}</span>
 
-  <div *ngIf="thread?.lock?.length > 0" class="lock">
+  <span *ngIf="thread.state" class="state">java.lang.Thread.State: <span
+    [ngClass]="thread.state">{{thread.state}}</span></span>
+
+  <ng-container *ngFor="let stackEntry of thread.stack">
+    <app-stack [stackEntry]="stackEntry"></app-stack>
+  </ng-container>
+
+  <ng-container *ngIf="thread?.lock?.length > 0" class="lock">
     Locked ownable synchronizers:
-    <ul>
-      <li *ngFor="let lockEntry of thread.lock"><app-lock-synchronizer [lockSynchronizer]="lockEntry"></app-lock-synchronizer></li>
-    </ul>
-  </div>
+    <ng-container *ngFor="let lockEntry of thread.lock">
+      <app-lock-synchronizer [lockSynchronizer]="lockEntry"></app-lock-synchronizer>
+    </ng-container>
+  </ng-container>
 
-</div>
+</p>

@@ -46,7 +46,7 @@ import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchr
     LockOwnableSynchonizerComponent
   ],
   imports: [
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('./ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
     BrowserModule,
     NoopAnimationsModule,

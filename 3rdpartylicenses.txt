@@ -110,6 +110,10 @@ MIT
 MIT
 MIT
 
+@angular/service-worker@5.2.10
+MIT
+MIT
+
 @angular/material@5.2.4
 MIT
 The MIT License

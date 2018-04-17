@@ -8,16 +8,16 @@
       <button mat-mini-fab (click)="openDialog()">
         <mat-icon >note_add</mat-icon>
       </button>
-      <button mat-button>
+      <button mat-button (click)="clearStore()">
         <mat-icon >delete_sweep</mat-icon>
       </button>
     </div>
     <nav mat-tab-nav-bar backgroundColor="primary">
-      <ng-container *ngFor="let threaddump$ of storage.values()">
+      <ng-container *ngFor="let threaddump$ of threaddumps">
         <ng-container *ngIf="threaddump$ | async as threaddump; else wainting">
           <a mat-tab-link >{{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</a>
         </ng-container>
-        <ng-container #wainting><mat-spinner></mat-spinner></ng-container>
+        <ng-template #wainting><mat-spinner></mat-spinner></ng-template>
       </ng-container>
     </nav>
   </mat-toolbar-row>

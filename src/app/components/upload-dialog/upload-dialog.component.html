@@ -4,7 +4,7 @@
     <form >
       <input type="file" (change)="onFileChange($event)" multiple>
     </form>
-    <mat-list dense>
+    <mat-list>
       <mat-list-item *ngFor="let file of files">
         <mat-icon mat-list-icon>insert_drive_file</mat-icon>
         <h4>{{file.name}}</h4>

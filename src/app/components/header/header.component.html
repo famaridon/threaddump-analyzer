@@ -5,23 +5,20 @@
 
   <mat-toolbar-row>
     <div ngClass="sidebare">
-      <button mat-mini-fab>
+      <button mat-mini-fab (click)="openDialog()">
         <mat-icon >note_add</mat-icon>
       </button>
       <button mat-button>
-        <mat-icon >clear_all</mat-icon>
+        <mat-icon >delete_sweep</mat-icon>
       </button>
     </div>
     <nav mat-tab-nav-bar backgroundColor="primary">
-      <a mat-tab-link >
-        1111111111111
-      </a>
-      <a mat-tab-link [active]="true" >
-        1111111111111
-      </a>
-      <a mat-tab-link >
-        1111111111111
-      </a>
+      <ng-container *ngFor="let threaddump$ of storage.values()">
+        <ng-container *ngIf="threaddump$ | async as threaddump; else wainting">
+          <a mat-tab-link >{{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</a>
+        </ng-container>
+        <ng-container #wainting><mat-spinner></mat-spinner></ng-container>
+      </ng-container>
     </nav>
   </mat-toolbar-row>
 

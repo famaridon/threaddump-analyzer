@@ -3,10 +3,19 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {AsyncPipe} from '@angular/common';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatTabsModule, MatIconModule, MatMenuModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatTabsModule,
+  MatIconModule,
+  MatMenuModule,
+  MatDialogModule, MatProgressSpinnerModule, MatListModule
+} from '@angular/material';
 
 import {MomentModule} from 'angular2-moment';
 
@@ -22,11 +31,13 @@ import {AtStackComponent} from './components/thread/stack/at-stack/at-stack.comp
 import {UnknownStackComponent} from './components/thread/stack/unknown-stack/unknown-stack.component';
 import {LockedStackComponent} from './components/thread/stack/locked-stack/locked-stack.component';
 
-import { WaitingToLockStackComponent } from './components/thread/stack/waiting-to-lock-stack/waiting-to-lock-stack.component';
-import { LockSynchronizerComponent } from './components/thread/lock-synchronizer/lock-synchronizer.component';
-import { UnknonwnLockSynchonizerComponent } from './components/thread/lock-synchronizer/unknonwn-lock-synchonizer/unknonwn-lock-synchonizer.component';
-import { NoneLockSynchonizerComponent } from './components/thread/lock-synchronizer/none-lock-synchonizer/none-lock-synchonizer.component';
-import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchronizer/lock-ownable-synchonizer/lock-ownable-synchonizer.component';
+import {WaitingToLockStackComponent} from './components/thread/stack/waiting-to-lock-stack/waiting-to-lock-stack.component';
+import {LockSynchronizerComponent} from './components/thread/lock-synchronizer/lock-synchronizer.component';
+import {UnknonwnLockSynchonizerComponent} from './components/thread/lock-synchronizer/unknonwn-lock-synchonizer/unknonwn-lock-synchonizer.component';
+import {NoneLockSynchonizerComponent} from './components/thread/lock-synchronizer/none-lock-synchonizer/none-lock-synchonizer.component';
+import {LockOwnableSynchonizerComponent} from './components/thread/lock-synchronizer/lock-ownable-synchonizer/lock-ownable-synchonizer.component';
+import {UploadDialogComponent} from './components/upload-dialog/upload-dialog.component';
+import {StoreService} from './services/store.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +53,8 @@ import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchr
     LockSynchronizerComponent,
     UnknonwnLockSynchonizerComponent,
     NoneLockSynchonizerComponent,
-    LockOwnableSynchonizerComponent
+    LockOwnableSynchonizerComponent,
+    UploadDialogComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
@@ -56,6 +68,9 @@ import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchr
     MatMenuModule,
     MatSidenavModule,
     MatTabsModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatListModule,
     MomentModule
   ],
   entryComponents: [
@@ -65,9 +80,10 @@ import { LockOwnableSynchonizerComponent } from './components/thread/lock-synchr
     WaitingToLockStackComponent,
     UnknonwnLockSynchonizerComponent,
     NoneLockSynchonizerComponent,
-    LockOwnableSynchonizerComponent
+    LockOwnableSynchonizerComponent,
+    UploadDialogComponent
   ],
-  providers: [ParserService],
+  providers: [ParserService, StoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,21 @@
+<div>
+  <h2 mat-dialog-title>Add some threadump files</h2>
+  <mat-dialog-content>
+    <form >
+      <input type="file" (change)="onFileChange($event)" multiple>
+    </form>
+    <mat-list dense>
+      <mat-list-item *ngFor="let file of files">
+        <mat-icon mat-list-icon>insert_drive_file</mat-icon>
+        <h4>{{file.name}}</h4>
+        <button mat-button (click)="remove(file)">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onAddClick($event)" color="primary">Add</button>
+    <button mat-button (click)="onExitClick($event)">Exit</button>
+  </mat-dialog-actions>
+</div>

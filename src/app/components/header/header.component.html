@@ -17,7 +17,11 @@
         <ng-container *ngIf="threaddump$ | async as threaddump; else wainting">
           <a mat-tab-link >{{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</a>
         </ng-container>
-        <ng-template #wainting><mat-spinner></mat-spinner></ng-template>
+        <ng-template #wainting>
+          <div mat-tab-link >
+            <mat-spinner color="accent" diameter="40"></mat-spinner>
+          </div>
+        </ng-template>
       </ng-container>
     </nav>
   </mat-toolbar-row>

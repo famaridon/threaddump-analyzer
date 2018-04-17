@@ -15,7 +15,10 @@
     <nav mat-tab-nav-bar backgroundColor="primary">
       <ng-container *ngFor="let threaddump$ of threaddumps">
         <ng-container *ngIf="threaddump$ | async as threaddump; else wainting">
-          <a mat-tab-link >{{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</a>
+          <a mat-tab-link
+             [routerLink]="'/'+threaddump.id"
+             routerLinkActive #rla="routerLinkActive"
+             [active]="rla.isActive" >{{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</a>
         </ng-container>
         <ng-template #wainting>
           <div mat-tab-link >

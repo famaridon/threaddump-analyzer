@@ -38,6 +38,13 @@ import {NoneLockSynchonizerComponent} from './components/thread/lock-synchronize
 import {LockOwnableSynchonizerComponent} from './components/thread/lock-synchronizer/lock-ownable-synchonizer/lock-ownable-synchonizer.component';
 import {UploadDialogComponent} from './components/upload-dialog/upload-dialog.component';
 import {StoreService} from './services/store.service';
+import {ActivatedRouteSnapshot, DetachedRouteHandle, RouteReuseStrategy, RouterModule, Routes} from '@angular/router';
+import {HelpComponent} from './components/help/help.component';
+
+const appRoutes: Routes = [
+  {path: '', component: HelpComponent},
+  {path: ':id', component: ThreaddumpComponent}
+];
 
 @NgModule({
   declarations: [
@@ -54,11 +61,16 @@ import {StoreService} from './services/store.service';
     UnknonwnLockSynchonizerComponent,
     NoneLockSynchonizerComponent,
     LockOwnableSynchonizerComponent,
-    UploadDialogComponent
+    UploadDialogComponent,
+    HelpComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: !environment.production} // <-- debugging purposes only
+    ),
     BrowserModule,
     NoopAnimationsModule,
     MatButtonModule,
@@ -83,8 +95,12 @@ import {StoreService} from './services/store.service';
     LockOwnableSynchonizerComponent,
     UploadDialogComponent
   ],
-  providers: [ParserService, StoreService],
+  providers: [
+    ParserService,
+    StoreService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+

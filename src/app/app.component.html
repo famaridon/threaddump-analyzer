@@ -7,18 +7,7 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-<h1>Hello world !</h1>
-    <!--<nav mat-tab-nav-bar>-->
-      <!--<a mat-tab-link *ngFor="let threaddump of threaddumps" (click)="changeSelectedThreaddump(threaddump)" [active]="threaddump === selectedThreaddump">-->
-        <!--{{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}-->
-      <!--</a>-->
-    <!--</nav>-->
-
-    <!--<div [ngClass]="{'d-none': threaddump !== selectedThreaddump}" *ngFor="let threaddump of threaddumps">-->
-      <!--<app-threaddump [threaddump]="threaddump"></app-threaddump>-->
-    <!--</div>-->
-
-
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

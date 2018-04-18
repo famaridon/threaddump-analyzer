@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AsyncPipe} from '@angular/common';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
@@ -72,7 +72,7 @@ const appRoutes: Routes = [
       {enableTracing: !environment.production} // <-- debugging purposes only
     ),
     BrowserModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatToolbarModule,

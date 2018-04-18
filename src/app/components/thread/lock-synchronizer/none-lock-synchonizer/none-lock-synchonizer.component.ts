@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {AbstractLockSynchronizerComponent} from '../abstract-lock-synchronizer.component';
 import {LockSynchronizeEntry, NoneLockSynchronizeEntry} from '../../../../services/lock.synchronize.entry';
 
 @Component({
   selector: 'app-none-lock-synchonizer',
   templateUrl: './none-lock-synchonizer.component.html',
-  styleUrls: ['./none-lock-synchonizer.component.css']
+  styleUrls: ['./none-lock-synchonizer.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NoneLockSynchonizerComponent extends AbstractLockSynchronizerComponent<NoneLockSynchronizeEntry> implements OnInit {
 

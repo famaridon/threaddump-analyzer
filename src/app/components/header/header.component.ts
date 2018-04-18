@@ -4,6 +4,7 @@ import {UploadDialogComponent} from '../upload-dialog/upload-dialog.component';
 import {StoreService} from '../../services/store.service';
 import {Threaddump} from '../../services/threaddump';
 import {Observable} from 'rxjs/Observable';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,9 @@ export class HeaderComponent implements OnInit {
   private _storage: Observable<Promise<Threaddump>[]>;
   private _threaddumps: Promise<Threaddump>[];
 
-  constructor(public storeService: StoreService, public dialog: MatDialog) {
+  constructor(public storeService: StoreService,
+              public dialog: MatDialog,
+              public router: Router) {
     this._storage = this.storeService.storage;
     this._storage.subscribe((threaddumps) => {
       this._threaddumps = threaddumps;
@@ -27,6 +30,7 @@ export class HeaderComponent implements OnInit {
 
   public clearStore(): void {
     this.storeService.clear();
+    this.router.navigate(['/']);
   };
 
   public openDialog(): void {

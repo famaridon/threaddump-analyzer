@@ -8,12 +8,10 @@ import 'rxjs/add/operator/pluck';
 @Component({
   selector: 'app-threaddump',
   templateUrl: './threaddump.component.html',
-  styleUrls: ['./threaddump.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./threaddump.component.css']
 })
 export class ThreaddumpComponent implements OnInit {
 
-  @Input()
   public threaddump: Threaddump | null = null;
 
   constructor(private storeService: StoreService,

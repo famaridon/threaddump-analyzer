@@ -1,0 +1,32 @@
+.name:before, .name:after {
+  content: '"';
+}
+
+.prio:before {
+  content: 'prio=';
+}
+
+.tid:before {
+  content: 'tid=';
+}
+
+.nid:before {
+  content: 'nid=';
+}
+
+.id:before {
+  content: '[';
+}
+
+.id:after {
+  content: ']';
+}
+
+.lock-target {
+  cursor: default;
+  color: blue;
+}
+
+.lock-id {
+  color: blue;
+}

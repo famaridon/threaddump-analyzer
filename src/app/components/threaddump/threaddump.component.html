@@ -1,10 +1,5 @@
-<p class="threaddump" *ngIf="threaddump !== null; else loading">
-  {{threaddump.name}}<br />
-  {{threaddump.date}}<br />
-  {{threaddump.description}}
-  <app-thread-details *ngFor="let thread of threaddump.threads" [thread]="thread"></app-thread-details>
-</p>
-
-<ng-template #loading>
-  <mat-spinner></mat-spinner>
-</ng-template>
+<div>
+  <mat-spinner *ngIf="!ready"></mat-spinner>
+  <pre #output class="threaddump">
+  </pre>
+</div>

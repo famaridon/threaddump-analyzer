@@ -1,0 +1,8 @@
+<div class="thread-tree">
+  <div matLine class="thread-tree-item" *ngFor="let item of items | async" [title]="item.name">
+    <div>{{item.name}}</div>
+    <ul class="thread-tree">
+      <li *ngFor="let state of item.states.values() " [class]="state"></li>
+    </ul>
+  </div>
+</div>

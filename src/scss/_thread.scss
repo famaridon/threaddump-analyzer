@@ -1,0 +1,50 @@
+.NEW {
+  background-color: blue;
+}
+
+.RUNNABLE {
+  background-color: green;
+}
+
+.BLOCKED {
+  background-color: red;
+}
+
+.WAITING {
+  background-color: gray;
+}
+
+.TERMINATED {
+  background-color: lightgray;
+}
+
+.TIMED_WAITING {
+  background-color: gray;
+}
+
+.thread-tree-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  max-height: 1.6rem;
+
+  & > div {
+    width: 75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  ul {
+    list-style: none;
+    display: inline-block;
+    width: 24%;
+
+    li {
+      display: inline-block;
+      min-height: 1rem;
+      min-width: 1rem;
+    }
+  }
+
+}

@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServiceWorkerModule} from '@angular/service-worker';
-import { RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
 import {environment} from '../environments/environment';
 
@@ -15,7 +15,10 @@ import {
   MatTabsModule,
   MatIconModule,
   MatMenuModule,
-  MatDialogModule, MatProgressSpinnerModule, MatListModule
+  MatDialogModule,
+  MatProgressSpinnerModule,
+  MatListModule,
+  MatTableModule
 } from '@angular/material';
 
 import {MomentModule} from 'angular2-moment';
@@ -29,6 +32,7 @@ import {HelpComponent} from './components/help/help.component';
 import {ParserService} from './services/parser.service';
 import {StoreService} from './services/store.service';
 import {HtmlRendererService} from './services/html-renderer.service';
+import {ThreadTreeComponent} from './components/thread-tree/thread-tree.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -41,7 +45,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     ThreaddumpComponent,
     UploadDialogComponent,
-    HelpComponent
+    HelpComponent,
+    ThreadTreeComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
@@ -62,6 +67,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
+    MatTableModule,
     MomentModule
   ],
   entryComponents: [

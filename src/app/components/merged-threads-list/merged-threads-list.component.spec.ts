@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThreadTreeComponent } from './thread-tree.component';
+import { MergedThreadsListComponent } from './merged-threads-list.component';
 
-describe('ThreadTreeComponent', () => {
-  let component: ThreadTreeComponent;
-  let fixture: ComponentFixture<ThreadTreeComponent>;
+describe('MergedThreadsListComponent', () => {
+  let component: MergedThreadsListComponent;
+  let fixture: ComponentFixture<MergedThreadsListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ThreadTreeComponent ]
+      declarations: [ MergedThreadsListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThreadTreeComponent);
+    fixture = TestBed.createComponent(MergedThreadsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

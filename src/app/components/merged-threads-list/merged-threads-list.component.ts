@@ -5,29 +5,29 @@ import {Status} from 'tslint/lib/runner';
 import {State} from '../../services/thread';
 
 @Component({
-  selector: 'app-thread-tree',
-  templateUrl: './thread-tree.component.html',
-  styleUrls: ['./thread-tree.component.scss']
+  selector: 'app-merged-threads-list',
+  templateUrl: './merged-threads-list.component.html',
+  styleUrls: ['./merged-threads-list.component.scss']
 })
-export class ThreadTreeComponent implements OnInit {
+export class MergedThreadsListComponent implements OnInit {
 
-  public items: Promise<ThreadListItem[]>;
-  public threaddumps: Threaddump[];
+  public items: Promise<MergedThreadItem[]>;
+  private _threaddumps: Threaddump[] | null;
 
   constructor(private storeService: StoreService) {
   }
 
   ngOnInit() {
     this.storeService.storage.subscribe((threaddumps$: Promise<Threaddump>[]) => {
-      this.items = new Promise<ThreadListItem[]>((resolve) => {
-        const items$ = new Map<string, ThreadListItem>();
+      this.items = new Promise<MergedThreadItem[]>((resolve) => {
+        const items$ = new Map<string, MergedThreadItem>();
         Promise.all(threaddumps$).then((threaddumps) => {
-          this.threaddumps = threaddumps;
+          this._threaddumps = threaddumps;
           threaddumps.forEach((threaddump) => {
             threaddump.threads.forEach((thread) => {
               let threadListItem = items$.get(thread.id);
               if (!threadListItem) {
-                threadListItem = new ThreadListItem(thread.id, thread.name);
+                threadListItem = new MergedThreadItem(thread.id, thread.name);
                 items$.set(thread.id, threadListItem);
               }
               threadListItem.states.set(threaddump, thread.state);
@@ -42,9 +42,14 @@ export class ThreadTreeComponent implements OnInit {
     });
   }
 
+
+  get threaddumps(): Threaddump[] | null {
+    return this._threaddumps;
+  }
+
 }
 
-export class ThreadListItem {
+export class MergedThreadItem {
   public readonly id: string;
   public readonly name: string;
   public readonly states: Map<Threaddump, State>;

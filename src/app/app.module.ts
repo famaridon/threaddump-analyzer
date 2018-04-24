@@ -32,7 +32,7 @@ import {HelpComponent} from './components/help/help.component';
 import {ParserService} from './services/parser.service';
 import {StoreService} from './services/store.service';
 import {HtmlRendererService} from './services/html-renderer.service';
-import {ThreadTreeComponent} from './components/thread-tree/thread-tree.component';
+import {MergedThreadsListComponent} from './components/merged-threads-list/merged-threads-list.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -46,7 +46,7 @@ const appRoutes: Routes = [
     ThreaddumpComponent,
     UploadDialogComponent,
     HelpComponent,
-    ThreadTreeComponent
+    MergedThreadsListComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),

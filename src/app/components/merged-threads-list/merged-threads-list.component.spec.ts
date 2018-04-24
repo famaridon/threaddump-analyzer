@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LockedStackComponent } from './locked-stack.component';
+import { MergedThreadsListComponent } from './merged-threads-list.component';
 
-describe('LockedStackComponent', () => {
-  let component: LockedStackComponent;
-  let fixture: ComponentFixture<LockedStackComponent>;
+describe('MergedThreadsListComponent', () => {
+  let component: MergedThreadsListComponent;
+  let fixture: ComponentFixture<MergedThreadsListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LockedStackComponent ]
+      declarations: [ MergedThreadsListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LockedStackComponent);
+    fixture = TestBed.createComponent(MergedThreadsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

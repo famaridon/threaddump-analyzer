@@ -7,6 +7,10 @@
 }
 
 .sidebare  {
-  max-width: 50% ;
-  min-width: 300px ;
+  max-width: 30rem ;
+  min-width: 30rem ;
+}
+
+mat-sidenav-container {
+  font-family: 'Roboto Mono', monospace;
 }

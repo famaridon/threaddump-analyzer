@@ -1,6 +1,6 @@
 import {LockSynchronizeEntry} from './lock.synchronize.entry';
 import {StackEntry} from './stack.entry';
-import {HtmlConvertable} from './html-convertable';
+import {HtmlConvertable} from '../../html-convertable';
 
 export class Thread implements HtmlConvertable {
   public name: string;

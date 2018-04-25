@@ -1,6 +1,6 @@
 import {Thread} from './thread';
 import {UUID} from 'angular2-uuid';
-import {HtmlConvertable} from './html-convertable';
+import {HtmlConvertable} from '../../html-convertable';
 
 export class Threaddump implements HtmlConvertable {
   public id: string;

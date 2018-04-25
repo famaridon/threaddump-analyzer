@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {UploadDialogComponent} from '../upload-dialog/upload-dialog.component';
 import {StoreService} from '../../services/store.service';
-import {Threaddump} from '../../services/threaddump';
+import {Threaddump} from '../../services/parser/beans/threaddump';
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
 
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   public clearStore(): void {
     this.storeService.clear();
     this.router.navigate(['/']);
-  };
+  }
 
   public openDialog(): void {
     this.dialog.open(UploadDialogComponent, {});

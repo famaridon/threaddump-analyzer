@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {Threaddump} from '../../services/threaddump';
+import {Threaddump} from '../../services/parser/beans/threaddump';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StoreService} from '../../services/store.service';
 import 'rxjs/add/operator/pluck';

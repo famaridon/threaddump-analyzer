@@ -1,6 +1,6 @@
-import {HtmlConvertable} from './html-convertable';
+import {HtmlConvertable} from '../../html-convertable';
 
-export abstract class StackEntry implements HtmlConvertable{
+export abstract class StackEntry implements HtmlConvertable {
   public content: string;
 
   constructor(content: string) {

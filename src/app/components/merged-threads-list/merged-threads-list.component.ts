@@ -1,8 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {StoreService} from '../../services/store.service';
-import {Threaddump} from '../../services/threaddump';
-import {Status} from 'tslint/lib/runner';
-import {State} from '../../services/thread';
+import {Threaddump} from '../../services/parser/beans/threaddump';
+import {State} from '../../services/parser/beans/thread';
+
+export class MergedThreadItem {
+  public readonly id: string;
+  public readonly name: string;
+  public readonly states: Map<Threaddump, State>;
+
+
+  constructor(id: string, name: string) {
+    this.id = id;
+    this.name = name;
+    this.states = new Map<Threaddump, State>();
+  }
+}
 
 @Component({
   selector: 'app-merged-threads-list',
@@ -47,17 +59,4 @@ export class MergedThreadsListComponent implements OnInit {
     return this._threaddumps;
   }
 
-}
-
-export class MergedThreadItem {
-  public readonly id: string;
-  public readonly name: string;
-  public readonly states: Map<Threaddump, State>;
-
-
-  constructor(id: string, name: string) {
-    this.id = id;
-    this.name = name;
-    this.states = new Map<Threaddump, State>();
-  }
 }

@@ -1,6 +1,6 @@
-import {HtmlConvertable} from './html-convertable';
+import {HtmlConvertable} from '../../html-convertable';
 
-export abstract class LockSynchronizeEntry implements HtmlConvertable{
+export abstract class LockSynchronizeEntry implements HtmlConvertable {
   private _content: string;
 
   constructor(content: string) {

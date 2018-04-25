@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Threaddump} from './threaddump';
+import {Threaddump} from './parser/beans/threaddump';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 

@@ -1,5 +1,5 @@
 import {Thread} from '../beans/thread';
-import {ThreadParseResult} from '../../parser.service';
+import {ThreadParseResult} from '../thread-parser';
 
 export interface ThreadParseStage {
 

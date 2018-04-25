@@ -1,7 +1,8 @@
 import {ThreadParseStage} from '../thread-parse-stage';
 import {State, Thread} from '../../beans/thread';
-import {THREAD_BLANK_LINE_DETECT_REGEX, ThreadParseResult} from '../../../parser.service';
+import {THREAD_BLANK_LINE_DETECT_REGEX} from '../../../parser.service';
 import {ThreadStackParserStage} from './thread-stack-parser-stage';
+import {ThreadParseResult} from '../../thread-parser';
 
 export class ThreadStateParserStage implements ThreadParseStage {
 

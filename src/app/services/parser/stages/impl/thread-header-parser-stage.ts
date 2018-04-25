@@ -1,6 +1,6 @@
 import {ThreadParseStage} from '../thread-parse-stage';
 import {Thread} from '../../beans/thread';
-import {ThreadParseResult} from '../../../parser.service';
+import {ThreadParseResult} from '../../thread-parser';
 import {ThreadStateParserStage} from './thread-state-parser-stage';
 
 export class ThreadHeaderParserStage implements ThreadParseStage {

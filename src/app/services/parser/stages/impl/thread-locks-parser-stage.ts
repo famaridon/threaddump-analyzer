@@ -6,7 +6,8 @@ import {
   NoneLockSynchronizeEntry,
   UnknownLockSynchronizeEntry
 } from '../../beans/lock.synchronize.entry';
-import {THREAD_BLANK_LINE_DETECT_REGEX, ThreadParseResult} from '../../../parser.service';
+import {THREAD_BLANK_LINE_DETECT_REGEX} from '../../../parser.service';
+import {ThreadParseResult} from '../../thread-parser';
 
 export class ThreadLocksParserStage implements ThreadParseStage {
 

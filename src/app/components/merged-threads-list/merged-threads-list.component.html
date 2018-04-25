@@ -2,7 +2,7 @@
   <div matLine class="merged-thread-list-item" *ngFor="let item of items | async" [title]="item.name">
     <div class="thread-name">{{item.name}}</div>
     <ul class="thread-states">
-      <li *ngFor="let threaddump of threaddumps " [ngClass]="'thread-state'">
+      <li *ngFor="let threaddump of $threaddumps | async " [ngClass]="'thread-state'">
         <div [class]="item.states.get(threaddump)"></div>
       </li>
     </ul>

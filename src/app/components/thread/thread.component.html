@@ -1,3 +1,5 @@
-<p>
-  thread works!
-</p>
+<mat-tab-group>
+  <ng-container *ngFor="let $threaddump of $threaddumpList">
+    <mat-tab [label]="threaddump.date">Content 1</mat-tab>
+  </ng-container>
+</mat-tab-group>

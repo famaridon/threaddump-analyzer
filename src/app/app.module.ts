@@ -38,7 +38,7 @@ import { ThreadComponent } from './components/thread/thread.component';
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
   // {path: ':id', component: ThreaddumpComponent},
-  {path: 'thread/:tid/threaddump/:tdid', component: ThreadComponent}
+  {path: 'thread/:tid', component: ThreadComponent}
 ];
 
 @NgModule({

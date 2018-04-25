@@ -13,16 +13,10 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  private _storage: Observable<Promise<Threaddump>[]>;
-  private _threaddumps: Promise<Threaddump>[];
-
   constructor(public storeService: StoreService,
               public dialog: MatDialog,
               public router: Router) {
-    this._storage = this.storeService.storage;
-    this._storage.subscribe((threaddumps) => {
-      this._threaddumps = threaddumps;
-    });
+
   }
 
   ngOnInit() {
@@ -37,7 +31,4 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(UploadDialogComponent, {});
   }
 
-  get threaddumps(): Promise<Threaddump>[] {
-    return this._threaddumps;
-  }
 }

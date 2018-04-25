@@ -33,10 +33,12 @@ import {ParserService} from './services/parser.service';
 import {StoreService} from './services/store.service';
 import {HtmlRendererService} from './services/html-renderer.service';
 import {MergedThreadsListComponent} from './components/merged-threads-list/merged-threads-list.component';
+import { ThreadComponent } from './components/thread/thread.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
-  {path: ':id', component: ThreaddumpComponent}
+  // {path: ':id', component: ThreaddumpComponent},
+  {path: 'thread/:tid/threaddump/:tdid', component: ThreadComponent}
 ];
 
 @NgModule({
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     ThreaddumpComponent,
     UploadDialogComponent,
     HelpComponent,
-    MergedThreadsListComponent
+    MergedThreadsListComponent,
+    ThreadComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),

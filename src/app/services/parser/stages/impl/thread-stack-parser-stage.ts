@@ -1,9 +1,9 @@
 import {ThreadParseStage} from '../thread-parse-stage';
 import {Thread} from '../../beans/thread';
 import {AtStackEntry, LockedStackEntry, StackEntry, UnknowStackEntry, WaintingToLockStackEntry} from '../../beans/stack.entry';
-import {THREAD_BLANK_LINE_DETECT_REGEX} from '../../../parser.service';
+import {THREAD_BLANK_LINE_DETECT_REGEX} from '../thread-parse-stage';
 import {ThreadLocksParserStage} from './thread-locks-parser-stage';
-import {ThreadParseResult} from '../../thread-parser';
+import {ThreadParseResult} from '../../thread-parse-result';
 
 export class ThreadStackParserStage implements ThreadParseStage {
 

@@ -1,12 +1,7 @@
 import {Thread} from './beans/thread';
 import {ThreadParseStage} from './stages/thread-parse-stage';
 import {ThreadHeaderParserStage} from './stages/impl/thread-header-parser-stage';
-
-export enum ThreadParseResult {
-  STARTING,
-  CONTINUE,
-  COMPLETED
-}
+import {ThreadParseResult} from './thread-parse-result';
 
 export class ThreadParser {
 

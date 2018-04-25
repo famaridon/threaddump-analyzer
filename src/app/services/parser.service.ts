@@ -8,7 +8,7 @@ export * from './parser/beans/thread';
 export * from './parser/beans/stack.entry';
 export * from './parser/beans/lock.synchronize.entry';
 
-export let THREAD_BLANK_LINE_DETECT_REGEX = /^\s*$/;
+
 
 /**
  * this service add ability to parse thread dump as object

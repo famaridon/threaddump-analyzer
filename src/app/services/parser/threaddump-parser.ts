@@ -1,6 +1,6 @@
 import {Threaddump} from './beans/threaddump';
 import {ThreadParser} from './thread-parser';
-import {ThreadParseResult} from './thread-parser';
+import {ThreadParseResult} from './thread-parse-result';
 
 export class ThreaddumpParser {
 

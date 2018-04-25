@@ -4,6 +4,7 @@ import {HtmlRendererService} from '../../services/html-renderer.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Threaddump} from '../../services/parser/beans/threaddump';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-thread',
@@ -12,10 +13,9 @@ import {Threaddump} from '../../services/parser/beans/threaddump';
 })
 export class ThreadComponent implements OnInit, OnDestroy {
 
-  private tidSubscription: Subscription;
-  private tid: string;
-  private $threaddumpListSubscription: Subscription;
-  public $threaddumpList: Threaddump[] = [];
+  private _tidSubscription: Subscription;
+  private _tid: string;
+  private _$threaddumpList: Observable<Threaddump[]> = [];
 
   constructor(private storeService: StoreService,
               private htmlRendererService: HtmlRendererService,
@@ -25,17 +25,18 @@ export class ThreadComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.tidSubscription = this.route.params.subscribe((params) => {
-      this.tid = params['tid'];
+    this._tidSubscription = this.route.params.subscribe((params) => {
+      this._tid = params['tid'];
     });
-    this.storeService.storage.subscribe(($threaddump) => {
-      this.$threaddumpList = $threaddump;
-    });
+    this._$threaddumpList = this.storeService.storage;
   }
 
   ngOnDestroy(): void {
-    this.tidSubscription.unsubscribe();
-    this.$threaddumpListSubscription.unsubscribe();
+    this._tidSubscription.unsubscribe();
   }
 
+
+  get $threaddumpList(): Observable<Threaddump[]> {
+    return this._$threaddumpList;
+  }
 }

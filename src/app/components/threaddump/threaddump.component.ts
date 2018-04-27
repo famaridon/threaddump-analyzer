@@ -3,7 +3,6 @@ import {Threaddump} from '../../services/parser/beans/threaddump';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StoreService} from '../../services/store.service';
 import 'rxjs/add/operator/pluck';
-import {HtmlRendererService} from '../../services/html-renderer.service';
 
 @Component({
   selector: 'app-threaddump',
@@ -18,7 +17,6 @@ export class ThreaddumpComponent implements OnInit {
   private output: ViewContainerRef;
 
   constructor(private storeService: StoreService,
-              private htmlRendererService: HtmlRendererService,
               private route: ActivatedRoute,
               private router: Router) {
 

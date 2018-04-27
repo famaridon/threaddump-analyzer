@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StoreService} from '../../services/store.service';
-import {HtmlRendererService} from '../../services/html-renderer.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Threaddump} from '../../services/parser/beans/threaddump';
 import {Observable} from 'rxjs/Observable';
@@ -19,7 +18,6 @@ export class ThreadComponent implements OnInit, OnDestroy {
   private _$threaddumpList: Observable<Threaddump[]>;
 
   constructor(private storeService: StoreService,
-              private htmlRendererService: HtmlRendererService,
               private route: ActivatedRoute) {
 
   }

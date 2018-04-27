@@ -32,7 +32,6 @@ import {HelpComponent} from './components/help/help.component';
 
 import {ParserService} from './services/parser.service';
 import {StoreService} from './services/store.service';
-import {HtmlRendererService} from './services/html-renderer.service';
 import {MergedThreadsListComponent} from './components/merged-threads-list/merged-threads-list.component';
 import { ThreadComponent } from './components/thread/thread.component';
 import { StackComponent } from './components/stack/stack.component';
@@ -82,8 +81,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     ParserService,
-    StoreService,
-    HtmlRendererService
+    StoreService
   ],
   bootstrap: [AppComponent]
 })

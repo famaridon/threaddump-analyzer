@@ -1,13 +1,10 @@
-import {HtmlConvertable} from '../../html-convertable';
-
-export abstract class StackEntry implements HtmlConvertable {
+export abstract class StackEntry {
   public content: string;
 
   constructor(content: string) {
     this.content = content.trim();
   }
 
-  public abstract toHtml(): string;
 }
 
 export class AtStackEntry extends StackEntry {
@@ -15,9 +12,6 @@ export class AtStackEntry extends StackEntry {
     super(content);
   }
 
-  public toHtml(): string {
-    return this.content;
-  }
 }
 
 export class UnknowStackEntry extends StackEntry {
@@ -25,9 +19,6 @@ export class UnknowStackEntry extends StackEntry {
     super(content);
   }
 
-  public toHtml(): string {
-    return `<span class="unknown">${this.content}</span>`;
-  }
 }
 
 export abstract class LockStackEntry extends StackEntry {
@@ -62,18 +53,10 @@ export class LockedStackEntry extends LockStackEntry {
   constructor(content: string, lock: string, a: string) {
     super(content, lock, a);
   }
-
-  public toHtml(): string {
-    return `- locked &lt;<span class="lock-id" id="${this.lock}">${this.lock}</span>&gt; (a ${this.a})`;
-  }
 }
 
 export class WaintingToLockStackEntry extends LockStackEntry {
   constructor(content: string, lock: string, a: string) {
     super(content, lock, a);
-  }
-
-  public toHtml(): string {
-    return `- waiting to lock &lt;<span class="lock-target" onclick="document.getElementById('${this.lock}').scrollIntoView();" >${this.lock}</span>&gt; (a ${this.a})`;
   }
 }

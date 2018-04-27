@@ -18,7 +18,8 @@ import {
   MatDialogModule,
   MatProgressSpinnerModule,
   MatListModule,
-  MatTableModule
+  MatTableModule,
+  MatCardModule
 } from '@angular/material';
 
 import {MomentModule} from 'angular2-moment';
@@ -34,6 +35,7 @@ import {StoreService} from './services/store.service';
 import {HtmlRendererService} from './services/html-renderer.service';
 import {MergedThreadsListComponent} from './components/merged-threads-list/merged-threads-list.component';
 import { ThreadComponent } from './components/thread/thread.component';
+import { StackComponent } from './components/stack/stack.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     UploadDialogComponent,
     HelpComponent,
     MergedThreadsListComponent,
-    ThreadComponent
+    ThreadComponent,
+    StackComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
@@ -64,6 +67,7 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatToolbarModule,
     MatIconModule,
+    MatCardModule,
     MatMenuModule,
     MatSidenavModule,
     MatTabsModule,

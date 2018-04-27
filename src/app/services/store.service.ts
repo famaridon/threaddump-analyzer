@@ -19,6 +19,16 @@ export class StoreService {
   constructor() {
   }
 
+  public saveAll($threaddumps: Promise<Threaddump>[]): void {
+    Promise.all($threaddumps).then((threaddumps) => {
+      threaddumps.forEach((threaddump) => {
+        this._completed.set(threaddump.id, threaddump);
+        this._storage.push(threaddump);
+      });
+      this.subject.next(this._storage.slice(0));
+    });
+  }
+
   public save(threaddump: Promise<Threaddump>): void {
     threaddump.then((t) => {
       this._completed.set(t.id, t);

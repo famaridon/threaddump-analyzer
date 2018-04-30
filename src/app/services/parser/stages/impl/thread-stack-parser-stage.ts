@@ -1,6 +1,6 @@
 import {ThreadParseStage} from '../thread-parse-stage';
 import {Thread} from '../../beans/thread';
-import {AtStackEntry, LockedStackEntry, StackEntry, UnknowStackEntry, WaintingToLockStackEntry} from '../../beans/stack.entry';
+import {AtStackEntry, LockedStackEntry, StackEntry, UnknowStackEntry, WaitingToLockStackEntry} from '../../beans/stack.entry';
 import {THREAD_BLANK_LINE_DETECT_REGEX} from '../thread-parse-stage';
 import {ThreadLocksParserStage} from './thread-locks-parser-stage';
 import {ThreadParseResult} from '../../thread-parse-result';
@@ -40,7 +40,7 @@ export class ThreadStackParserStage implements ThreadParseStage {
       stackEntry = lockedStackEntry;
     } else if (ThreadStackParserStage.THREAD_WAINTING_TO_LOCK_STACK_DETECT_REGEX.test(line)) {
       const parsed = ThreadStackParserStage.THREAD_WAINTING_TO_LOCK_STACK_PARSE_REGEX.exec(line);
-      const lockedStackEntry = new WaintingToLockStackEntry(line, parsed[1], parsed[2]);
+      const lockedStackEntry = new WaitingToLockStackEntry(line, parsed[1], parsed[2]);
       stackEntry = lockedStackEntry;
     } else {
       // default case is an unknow

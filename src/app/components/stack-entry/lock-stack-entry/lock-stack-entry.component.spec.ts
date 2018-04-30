@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThreaddumpComponent } from './threaddump.component';
+import { LockStackEntryComponent } from './lock-stack-entry.component';
 
-describe('ThreaddumpComponent', () => {
-  let component: ThreaddumpComponent;
-  let fixture: ComponentFixture<ThreaddumpComponent>;
+describe('LockStackEntryComponent', () => {
+  let component: LockStackEntryComponent;
+  let fixture: ComponentFixture<LockStackEntryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ThreaddumpComponent ]
+      declarations: [ LockStackEntryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThreaddumpComponent);
+    fixture = TestBed.createComponent(LockStackEntryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

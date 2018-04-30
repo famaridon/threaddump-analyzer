@@ -11,14 +11,12 @@ export class AtStackEntry extends StackEntry {
   constructor(content: string) {
     super(content);
   }
-
 }
 
 export class UnknowStackEntry extends StackEntry {
   constructor(content: string) {
     super(content);
   }
-
 }
 
 export abstract class LockStackEntry extends StackEntry {
@@ -55,7 +53,7 @@ export class LockedStackEntry extends LockStackEntry {
   }
 }
 
-export class WaintingToLockStackEntry extends LockStackEntry {
+export class WaitingToLockStackEntry extends LockStackEntry {
   constructor(content: string, lock: string, a: string) {
     super(content, lock, a);
   }

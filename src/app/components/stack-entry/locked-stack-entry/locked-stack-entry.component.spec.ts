@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StackComponent } from './stack.component';
+import { LockedStackEntryComponent } from './locked-stack-entry.component';
 
-describe('StackComponent', () => {
-  let component: StackComponent;
-  let fixture: ComponentFixture<StackComponent>;
+describe('LockedStackEntryComponent', () => {
+  let component: LockedStackEntryComponent;
+  let fixture: ComponentFixture<LockedStackEntryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StackComponent ]
+      declarations: [ LockedStackEntryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StackComponent);
+    fixture = TestBed.createComponent(LockedStackEntryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

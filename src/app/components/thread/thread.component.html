@@ -17,8 +17,13 @@
           </div>
           <div *ngIf="thread.state">&nbsp;&nbsp;java.lang.Thread.State: <span [class]="thread.state">{{thread.state}}</span></div>
 
-          <div *ngIf="thread.stack.length > 0">TODO : output the stack</div>
+          <div *ngIf="thread.stack.length > 0">
+            <ng-container *ngFor="let stackEntry of thread.stack;">
+              &nbsp;&nbsp;&nbsp;<app-stack-entry [stackEntry]="stackEntry"></app-stack-entry><br>
+            </ng-container>
+          </div>
           <!-- TODO : output locks -->
+          <br>
           <div *ngIf="thread.lock.length > 0">&nbsp;&nbsp;Locked ownable synchronizers:</div>
         </mat-card-content>
       </mat-card>

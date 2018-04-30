@@ -26,19 +26,23 @@ import {MomentModule} from 'angular2-moment';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header.component';
-import {ThreaddumpComponent} from './components/threaddump/threaddump.component';
 import {UploadDialogComponent} from './components/upload-dialog/upload-dialog.component';
 import {HelpComponent} from './components/help/help.component';
 
 import {ParserService} from './services/parser.service';
 import {StoreService} from './services/store.service';
 import {MergedThreadsListComponent} from './components/merged-threads-list/merged-threads-list.component';
-import { ThreadComponent } from './components/thread/thread.component';
-import { StackComponent } from './components/stack/stack.component';
+import {ThreadComponent} from './components/thread/thread.component';
+import {StackEntryComponent} from './components/stack-entry/stack-entry.component';
+import {AtStackEntryComponent} from './components/stack-entry/at-stack-entry/at-stack-entry.component';
+import {UnknowStackEntryComponent} from './components/stack-entry/unknow-stack-entry/unknow-stack-entry.component';
+import {LockStackEntryComponent} from './components/stack-entry/lock-stack-entry/lock-stack-entry.component';
+import {LockedStackEntryComponent} from './components/stack-entry/locked-stack-entry/locked-stack-entry.component';
+import {WaitingToLockStackEntryComponent} from './components/stack-entry/waiting-to-lock-stack-entry/waiting-to-lock-stack-entry.component';
+import {StackEntryHostDirective} from './components/stack-entry/stack-entry-host.directive';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
-  // {path: ':id', component: ThreaddumpComponent},
   {path: 'thread/:tid', component: ThreadComponent}
 ];
 
@@ -46,12 +50,17 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    ThreaddumpComponent,
     UploadDialogComponent,
     HelpComponent,
     MergedThreadsListComponent,
     ThreadComponent,
-    StackComponent
+    StackEntryComponent,
+    AtStackEntryComponent,
+    UnknowStackEntryComponent,
+    LockStackEntryComponent,
+    LockedStackEntryComponent,
+    WaitingToLockStackEntryComponent,
+    StackEntryHostDirective
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
@@ -77,7 +86,12 @@ const appRoutes: Routes = [
     MomentModule
   ],
   entryComponents: [
-    UploadDialogComponent
+    UploadDialogComponent,
+    AtStackEntryComponent,
+    UnknowStackEntryComponent,
+    LockStackEntryComponent,
+    LockedStackEntryComponent,
+    WaitingToLockStackEntryComponent
   ],
   providers: [
     ParserService,

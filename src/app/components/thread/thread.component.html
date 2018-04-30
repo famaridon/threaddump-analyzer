@@ -22,9 +22,13 @@
               &nbsp;&nbsp;&nbsp;<app-stack-entry [stackEntry]="stackEntry"></app-stack-entry><br>
             </ng-container>
           </div>
-          <!-- TODO : output locks -->
           <br>
-          <div *ngIf="thread.lock.length > 0">&nbsp;&nbsp;Locked ownable synchronizers:</div>
+          <div *ngIf="thread.lock.length > 0">
+            &nbsp;&nbsp;Locked ownable synchronizers:<br>
+            <ng-container *ngFor="let lockSynchronizeEntry of thread.lock;">
+              &nbsp;&nbsp;&nbsp;<app-lock-synchronize-entry [lockSynchronizeEntry]="lockSynchronizeEntry"></app-lock-synchronize-entry><br>
+            </ng-container>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-tab>

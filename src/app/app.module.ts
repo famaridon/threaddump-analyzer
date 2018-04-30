@@ -40,6 +40,11 @@ import {LockStackEntryComponent} from './components/stack-entry/lock-stack-entry
 import {LockedStackEntryComponent} from './components/stack-entry/locked-stack-entry/locked-stack-entry.component';
 import {WaitingToLockStackEntryComponent} from './components/stack-entry/waiting-to-lock-stack-entry/waiting-to-lock-stack-entry.component';
 import {StackEntryHostDirective} from './components/stack-entry/stack-entry-host.directive';
+import { LockSynchronizeEntryComponent } from './components/lock-synchronize-entry/lock-synchronize-entry.component';
+import { LockSynchronizeEntryHostDirective } from './components/lock-synchronize-entry/lock-synchronize-entry-host.directive';
+import { LockOwnableSynchronizersEntityComponent } from './components/lock-synchronize-entry/lock-ownable-synchronizers-entity/lock-ownable-synchronizers-entity.component';
+import { NoneLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/none-lock-synchronize-entity/none-lock-synchronize-entity.component';
+import { UnknowLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/unknow-lock-synchronize-entity/unknow-lock-synchronize-entity.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -60,7 +65,12 @@ const appRoutes: Routes = [
     LockStackEntryComponent,
     LockedStackEntryComponent,
     WaitingToLockStackEntryComponent,
-    StackEntryHostDirective
+    StackEntryHostDirective,
+    LockSynchronizeEntryComponent,
+    LockSynchronizeEntryHostDirective,
+    LockOwnableSynchronizersEntityComponent,
+    NoneLockSynchronizeEntityComponent,
+    UnknowLockSynchronizeEntityComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
@@ -91,7 +101,10 @@ const appRoutes: Routes = [
     UnknowStackEntryComponent,
     LockStackEntryComponent,
     LockedStackEntryComponent,
-    WaitingToLockStackEntryComponent
+    WaitingToLockStackEntryComponent,
+    LockOwnableSynchronizersEntityComponent,
+    NoneLockSynchronizeEntityComponent,
+    UnknowLockSynchronizeEntityComponent
   ],
   providers: [
     ParserService,

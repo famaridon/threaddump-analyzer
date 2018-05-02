@@ -1,11 +1,18 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild} from '@angular/core';
 import {StackEntryHostDirective} from './stack-entry-host.directive';
-import {AtStackEntry, LockedStackEntry, StackEntry, WaitingToLockStackEntry} from '../../services/parser/beans/stack.entry';
+import {
+  AtStackEntry,
+  LockedStackEntry,
+  StackEntry,
+  WaitingOnStackEntry,
+  WaitingToLockStackEntry
+} from '../../services/parser/beans/stack.entry';
 import {AtStackEntryComponent} from './at-stack-entry/at-stack-entry.component';
 import {UnknowStackEntryComponent} from './unknow-stack-entry/unknow-stack-entry.component';
 import {LockedStackEntryComponent} from './locked-stack-entry/locked-stack-entry.component';
 import {WaitingToLockStackEntryComponent} from './waiting-to-lock-stack-entry/waiting-to-lock-stack-entry.component';
 import {AbstractStackEntryComponent} from './abstract-stack-entry.component';
+import {WaitingOnStackEntryComponent} from './waiting-on-stack-entry/waiting-on-stack-entry.component';
 
 @Component({
   selector: 'app-stack-entry',
@@ -39,7 +46,10 @@ export class StackEntryComponent implements OnInit {
       return LockedStackEntryComponent;
     } else if (this.stackEntry instanceof WaitingToLockStackEntry) {
       return WaitingToLockStackEntryComponent;
+    } else if (this.stackEntry instanceof WaitingOnStackEntry) {
+      return WaitingOnStackEntryComponent;
     } else {
+      console.error(`No display component found for ${this.stackEntry.content}`);
       return UnknowStackEntryComponent;
     }
   }

@@ -58,3 +58,9 @@ export class WaitingToLockStackEntry extends LockStackEntry {
     super(content, lock, a);
   }
 }
+
+export class WaitingOnStackEntry extends LockStackEntry {
+  constructor(content: string, lock: string, a: string) {
+    super(content, lock, a);
+  }
+}

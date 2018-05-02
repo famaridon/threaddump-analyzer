@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group [selectedIndex]="tdindex">
   <ng-container *ngFor="let threaddump of $threaddumpList | async">
     <mat-tab>
       <ng-template mat-tab-label>

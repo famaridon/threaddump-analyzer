@@ -49,7 +49,8 @@ import { LockComponent } from './components/lock/lock.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
-  {path: 'thread/:tid', component: ThreadComponent}
+  {path: 'thread/:tid', component: ThreadComponent},
+  {path: 'lock/:lid', component: LockComponent}
 ];
 
 @NgModule({
@@ -79,7 +80,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: !environment.production} // <-- debugging purposes only
+      {enableTracing: false} // <-- debugging purposes only
     ),
     BrowserModule,
     BrowserAnimationsModule,

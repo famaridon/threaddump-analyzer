@@ -43,7 +43,7 @@ export class ThreadStackParserStage implements ThreadParseStage {
       const lockedStackEntry = new WaitingToLockStackEntry(line, parsed[1], parsed[2]);
       stackEntry = lockedStackEntry;
     } else {
-      // default case is an unknow
+      console.error(`Can't parse stack line: ${line}`);
       stackEntry = new UnknowStackEntry(line);
     }
 

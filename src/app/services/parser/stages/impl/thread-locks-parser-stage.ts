@@ -36,6 +36,7 @@ export class ThreadLocksParserStage implements ThreadParseStage {
     } else if (ThreadLocksParserStage.NONE_LOCK_DETECT_REGEX.test(line)) {
       lockEntry = new NoneLockSynchronizeEntry(line);
     } else {
+      console.error(`Can't parse lock line: ${line}`);
       lockEntry = new UnknownLockSynchronizeEntry(line);
     }
     thread.lock.push(lockEntry);

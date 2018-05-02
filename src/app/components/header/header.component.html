@@ -3,30 +3,13 @@
     <span>threaddump-analyzer</span>
   </mat-toolbar-row>
 
-  <mat-toolbar-row>
-    <div ngClass="sidebare">
-      <button mat-mini-fab (click)="openDialog()">
-        <mat-icon >note_add</mat-icon>
-      </button>
-      <button mat-button (click)="clearStore()">
-        <mat-icon >delete_sweep</mat-icon>
-      </button>
-    </div>
-    <nav mat-tab-nav-bar backgroundColor="primary">
-      <ng-container *ngFor="let threaddump$ of threaddumps">
-        <ng-container *ngIf="threaddump$ | async as threaddump; else wainting">
-          <a mat-tab-link
-             [routerLink]="'/'+threaddump.id"
-             routerLinkActive #rla="routerLinkActive"
-             [active]="rla.isActive" >{{threaddump.date | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</a>
-        </ng-container>
-        <ng-template #wainting>
-          <div mat-tab-link >
-            <mat-spinner color="accent" diameter="40"></mat-spinner>
-          </div>
-        </ng-template>
-      </ng-container>
-    </nav>
-  </mat-toolbar-row>
+  <div ngClass="floating-actions">
+    <button mat-fab (click)="openDialog()">
+      <mat-icon>note_add</mat-icon>
+    </button>
+    <button mat-mini-fab (click)="clearStore()">
+      <mat-icon>delete_sweep</mat-icon>
+    </button>
+  </div>
 
 </mat-toolbar>

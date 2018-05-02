@@ -45,14 +45,14 @@ import {LockSynchronizeEntryHostDirective} from './components/lock-synchronize-e
 import {LockOwnableSynchronizersEntityComponent} from './components/lock-synchronize-entry/lock-ownable-synchronizers-entity/lock-ownable-synchronizers-entity.component';
 import {NoneLockSynchronizeEntityComponent} from './components/lock-synchronize-entry/none-lock-synchronize-entity/none-lock-synchronize-entity.component';
 import {UnknowLockSynchronizeEntityComponent} from './components/lock-synchronize-entry/unknow-lock-synchronize-entity/unknow-lock-synchronize-entity.component';
-import {LockComponent} from './components/lock/lock.component';
 import {WaitingOnStackEntryComponent} from './components/stack-entry/waiting-on-stack-entry/waiting-on-stack-entry.component';
 import { LockLinkComponent } from './components/lock-link/lock-link.component';
+import { LockReportComponent } from './components/lock-report/lock-report.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
   {path: 'thread/:tid', component: ThreadComponent},
-  {path: 'lock/:lid', component: LockComponent}
+  {path: 'lock/:lid', component: LockReportComponent}
 ];
 
 @NgModule({
@@ -75,9 +75,9 @@ const appRoutes: Routes = [
     LockOwnableSynchronizersEntityComponent,
     NoneLockSynchronizeEntityComponent,
     UnknowLockSynchronizeEntityComponent,
-    LockComponent,
     WaitingOnStackEntryComponent,
-    LockLinkComponent
+    LockLinkComponent,
+    LockReportComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LockComponent } from './lock.component';
+import { LockReportComponent } from './lock-report.component';
 
-describe('LockComponent', () => {
-  let component: LockComponent;
-  let fixture: ComponentFixture<LockComponent>;
+describe('LockReportComponent', () => {
+  let component: LockReportComponent;
+  let fixture: ComponentFixture<LockReportComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LockComponent ]
+      declarations: [ LockReportComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LockComponent);
+    fixture = TestBed.createComponent(LockReportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

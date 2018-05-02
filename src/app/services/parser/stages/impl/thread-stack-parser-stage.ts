@@ -48,14 +48,17 @@ export class ThreadStackParserStage implements ThreadParseStage {
       const parsed = ThreadStackParserStage.THREAD_LOCKED_STACK_PARSE_REGEX.exec(line);
       const lockedStackEntry = new LockedStackEntry(line, parsed[1], parsed[2]);
       stackEntry = lockedStackEntry;
+      thread.locked.push(lockedStackEntry.lock);
     } else if (ThreadStackParserStage.THREAD_WAINTING_TO_LOCK_STACK_DETECT_REGEX.test(line)) {
       const parsed = ThreadStackParserStage.THREAD_WAINTING_TO_LOCK_STACK_PARSE_REGEX.exec(line);
       const lockedStackEntry = new WaitingToLockStackEntry(line, parsed[1], parsed[2]);
       stackEntry = lockedStackEntry;
+      thread.waitingToLock = lockedStackEntry.lock;
     } else if (ThreadStackParserStage.THREAD_WAINTING_ON_STACK_DETECT_REGEX.test(line)) {
       const parsed = ThreadStackParserStage.THREAD_WAINTING_ON_STACK_PARSE_REGEX.exec(line);
       const lockedStackEntry = new WaitingOnStackEntry(line, parsed[1], parsed[2]);
       stackEntry = lockedStackEntry;
+      thread.waitingOn = lockedStackEntry.lock;
     } else {
       console.error(`Can't parse stack line: ${line}`);
       stackEntry = new UnknowStackEntry(line);

@@ -45,6 +45,7 @@ import { LockSynchronizeEntryHostDirective } from './components/lock-synchronize
 import { LockOwnableSynchronizersEntityComponent } from './components/lock-synchronize-entry/lock-ownable-synchronizers-entity/lock-ownable-synchronizers-entity.component';
 import { NoneLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/none-lock-synchronize-entity/none-lock-synchronize-entity.component';
 import { UnknowLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/unknow-lock-synchronize-entity/unknow-lock-synchronize-entity.component';
+import { LockComponent } from './components/lock/lock.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -70,7 +71,8 @@ const appRoutes: Routes = [
     LockSynchronizeEntryHostDirective,
     LockOwnableSynchronizersEntityComponent,
     NoneLockSynchronizeEntityComponent,
-    UnknowLockSynchronizeEntityComponent
+    UnknowLockSynchronizeEntityComponent,
+    LockComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),

@@ -1,6 +1,6 @@
 .sidenav-container.mat-drawer-container {
   position: absolute;
-  top: 128px;
+  top: 64px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -13,4 +13,26 @@
 
 mat-sidenav-container {
   font-family: 'Roboto Mono', monospace;
+}
+
+.floating-actions {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column-reverse;
+  align-content: center;
+
+  button {
+    align-self: center;
+    margin: 0.8rem;
+  }
+
+  button:not(:first-child) {
+    background-color: #E0E0E0;
+    color: #616161;
+
+  }
+
 }

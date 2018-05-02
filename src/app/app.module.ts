@@ -18,35 +18,59 @@ import {
   MatDialogModule,
   MatProgressSpinnerModule,
   MatListModule,
-  MatTableModule
+  MatTableModule,
+  MatCardModule
 } from '@angular/material';
 
 import {MomentModule} from 'angular2-moment';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header.component';
-import {ThreaddumpComponent} from './components/threaddump/threaddump.component';
 import {UploadDialogComponent} from './components/upload-dialog/upload-dialog.component';
 import {HelpComponent} from './components/help/help.component';
 
 import {ParserService} from './services/parser.service';
 import {StoreService} from './services/store.service';
-import {HtmlRendererService} from './services/html-renderer.service';
 import {MergedThreadsListComponent} from './components/merged-threads-list/merged-threads-list.component';
+import {ThreadComponent} from './components/thread/thread.component';
+import {StackEntryComponent} from './components/stack-entry/stack-entry.component';
+import {AtStackEntryComponent} from './components/stack-entry/at-stack-entry/at-stack-entry.component';
+import {UnknowStackEntryComponent} from './components/stack-entry/unknow-stack-entry/unknow-stack-entry.component';
+import {LockStackEntryComponent} from './components/stack-entry/lock-stack-entry/lock-stack-entry.component';
+import {LockedStackEntryComponent} from './components/stack-entry/locked-stack-entry/locked-stack-entry.component';
+import {WaitingToLockStackEntryComponent} from './components/stack-entry/waiting-to-lock-stack-entry/waiting-to-lock-stack-entry.component';
+import {StackEntryHostDirective} from './components/stack-entry/stack-entry-host.directive';
+import { LockSynchronizeEntryComponent } from './components/lock-synchronize-entry/lock-synchronize-entry.component';
+import { LockSynchronizeEntryHostDirective } from './components/lock-synchronize-entry/lock-synchronize-entry-host.directive';
+import { LockOwnableSynchronizersEntityComponent } from './components/lock-synchronize-entry/lock-ownable-synchronizers-entity/lock-ownable-synchronizers-entity.component';
+import { NoneLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/none-lock-synchronize-entity/none-lock-synchronize-entity.component';
+import { UnknowLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/unknow-lock-synchronize-entity/unknow-lock-synchronize-entity.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
-  {path: ':id', component: ThreaddumpComponent}
+  {path: 'thread/:tid', component: ThreadComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ThreaddumpComponent,
     UploadDialogComponent,
     HelpComponent,
-    MergedThreadsListComponent
+    MergedThreadsListComponent,
+    ThreadComponent,
+    StackEntryComponent,
+    AtStackEntryComponent,
+    UnknowStackEntryComponent,
+    LockStackEntryComponent,
+    LockedStackEntryComponent,
+    WaitingToLockStackEntryComponent,
+    StackEntryHostDirective,
+    LockSynchronizeEntryComponent,
+    LockSynchronizeEntryHostDirective,
+    LockOwnableSynchronizersEntityComponent,
+    NoneLockSynchronizeEntityComponent,
+    UnknowLockSynchronizeEntityComponent
   ],
   imports: [
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
@@ -61,6 +85,7 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatToolbarModule,
     MatIconModule,
+    MatCardModule,
     MatMenuModule,
     MatSidenavModule,
     MatTabsModule,
@@ -71,12 +96,19 @@ const appRoutes: Routes = [
     MomentModule
   ],
   entryComponents: [
-    UploadDialogComponent
+    UploadDialogComponent,
+    AtStackEntryComponent,
+    UnknowStackEntryComponent,
+    LockStackEntryComponent,
+    LockedStackEntryComponent,
+    WaitingToLockStackEntryComponent,
+    LockOwnableSynchronizersEntityComponent,
+    NoneLockSynchronizeEntityComponent,
+    UnknowLockSynchronizeEntityComponent
   ],
   providers: [
     ParserService,
-    StoreService,
-    HtmlRendererService
+    StoreService
   ],
   bootstrap: [AppComponent]
 })

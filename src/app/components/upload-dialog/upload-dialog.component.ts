@@ -21,12 +21,11 @@ export class UploadDialogComponent implements OnInit {
   }
 
   onAddClick($event: Event): void {
-
+    const $threaddumps = [];
     this.files.forEach((file) => {
-      const promise = this.parserService.load(file);
-      this.storeService.save(promise);
+      $threaddumps.push(this.parserService.load(file));
     });
-
+    this.storeService.saveAll($threaddumps);
     this.dialogRef.close();
   }
 

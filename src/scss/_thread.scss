@@ -1,25 +1,25 @@
 .NEW {
-  background-color: blue;
+  background-color: $color-light;
 }
 
 .RUNNABLE {
-  background-color: green;
+  background-color: $color-success;
 }
 
 .BLOCKED {
-  background-color: red;
+  background-color: $color-danger;
 }
 
 .WAITING {
-  background-color: gray;
+  background-color: $color-light;
 }
 
 .TERMINATED {
-  background-color: lightgray;
+  background-color: $color-info;
 }
 
 .TIMED_WAITING {
-  background-color: gray;
+  background-color: $color-light;
 }
 
 .merged-thread-list {

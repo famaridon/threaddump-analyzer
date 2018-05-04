@@ -6,9 +6,9 @@
   right: 0;
 }
 
-.sidebare  {
-  max-width: 30rem ;
-  min-width: 30rem ;
+.sidebare {
+  max-width: 30rem;
+  min-width: 30rem;
 }
 
 mat-sidenav-container {
@@ -36,3 +36,19 @@ mat-sidenav-container {
   }
 
 }
+
+.flex-spacer {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.github {
+  #octocat {
+    max-height: 1.8rem;
+    max-width: 1.8rem;
+    fill: mat-color($mat-dark-theme-foreground, base);
+  }
+
+}
+

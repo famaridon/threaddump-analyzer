@@ -2,8 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StoreService} from '../../services/store.service';
 import {Threaddump} from '../../services/parser/beans/threaddump';
 import {State} from '../../services/parser/beans/thread';
-import {Observable} from 'rxjs/Observable';
-import {Subscription} from 'rxjs/Subscription';
+import {Observable, Subscription} from 'rxjs/index';
 
 export class MergedThreadItem {
   public readonly id: string;

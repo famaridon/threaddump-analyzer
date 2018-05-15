@@ -80,7 +80,6 @@ const appRoutes: Routes = [
     LockReportComponent
   ],
   imports: [
-    ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
@@ -100,7 +99,8 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     MatListModule,
     MatTableModule,
-    MomentModule
+    MomentModule,
+    ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     UploadDialogComponent,

@@ -1,0 +1,12 @@
+$background: map-get($app-theme, background);
+$foreground: map-get($app-theme, foreground);
+
+
+$color-primary: map-get($app-theme, primary);
+$color-secondary: map-get($app-theme, accent);
+$color-success: map-get($mat-light-green, 500);
+$color-danger: map-get($mat-red, 800);
+$color-warning: map-get($mat-orange, 800);
+$color-info: map-get($mat-light-blue, 800);
+$color-light: map-get($mat-gray, 300);
+$color-dark: map-get($mat-gray, 800);;

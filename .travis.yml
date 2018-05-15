@@ -11,9 +11,14 @@ branches:
 
 before_script:
   - npm install -g @angular/cli
+  - ng version
+  - ng set --global packageManager=yarn
 
 script:
-  - npm run build
+  - yarn run build
+
+cache:
+  yarn: true
 
 deploy:
   provider: pages

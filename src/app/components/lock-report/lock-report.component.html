@@ -1,0 +1,14 @@
+<mat-tab-group>
+  <ng-container *ngFor="let threaddump of $threaddumpList | async">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        {{threaddump.date | amDateFormat:'hh:mm:ss' }}
+      </ng-template>
+      <mat-card ><!-- *ngIf="getLock(threaddump); let lock" -->
+        <mat-card-content>
+          TODO : build lock report and display it
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </ng-container>
+</mat-tab-group>

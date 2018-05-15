@@ -13,6 +13,10 @@ export class Thread {
   public callstack: string;
   public stack: StackEntry[] = [];
   public lock: LockSynchronizeEntry[] = [];
+
+  public locked: string[] = [];
+  public waitingToLock: string;
+  public waitingOn: string;
 }
 
 export enum State {

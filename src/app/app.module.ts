@@ -40,15 +40,19 @@ import {LockStackEntryComponent} from './components/stack-entry/lock-stack-entry
 import {LockedStackEntryComponent} from './components/stack-entry/locked-stack-entry/locked-stack-entry.component';
 import {WaitingToLockStackEntryComponent} from './components/stack-entry/waiting-to-lock-stack-entry/waiting-to-lock-stack-entry.component';
 import {StackEntryHostDirective} from './components/stack-entry/stack-entry-host.directive';
-import { LockSynchronizeEntryComponent } from './components/lock-synchronize-entry/lock-synchronize-entry.component';
-import { LockSynchronizeEntryHostDirective } from './components/lock-synchronize-entry/lock-synchronize-entry-host.directive';
-import { LockOwnableSynchronizersEntityComponent } from './components/lock-synchronize-entry/lock-ownable-synchronizers-entity/lock-ownable-synchronizers-entity.component';
-import { NoneLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/none-lock-synchronize-entity/none-lock-synchronize-entity.component';
-import { UnknowLockSynchronizeEntityComponent } from './components/lock-synchronize-entry/unknow-lock-synchronize-entity/unknow-lock-synchronize-entity.component';
+import {LockSynchronizeEntryComponent} from './components/lock-synchronize-entry/lock-synchronize-entry.component';
+import {LockSynchronizeEntryHostDirective} from './components/lock-synchronize-entry/lock-synchronize-entry-host.directive';
+import {LockOwnableSynchronizersEntityComponent} from './components/lock-synchronize-entry/lock-ownable-synchronizers-entity/lock-ownable-synchronizers-entity.component';
+import {NoneLockSynchronizeEntityComponent} from './components/lock-synchronize-entry/none-lock-synchronize-entity/none-lock-synchronize-entity.component';
+import {UnknowLockSynchronizeEntityComponent} from './components/lock-synchronize-entry/unknow-lock-synchronize-entity/unknow-lock-synchronize-entity.component';
+import {WaitingOnStackEntryComponent} from './components/stack-entry/waiting-on-stack-entry/waiting-on-stack-entry.component';
+import { LockLinkComponent } from './components/lock-link/lock-link.component';
+import { LockReportComponent } from './components/lock-report/lock-report.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
-  {path: 'thread/:tid', component: ThreadComponent}
+  {path: 'thread/:tid', component: ThreadComponent},
+  {path: 'lock/:lid', component: LockReportComponent}
 ];
 
 @NgModule({
@@ -70,14 +74,16 @@ const appRoutes: Routes = [
     LockSynchronizeEntryHostDirective,
     LockOwnableSynchronizersEntityComponent,
     NoneLockSynchronizeEntityComponent,
-    UnknowLockSynchronizeEntityComponent
+    UnknowLockSynchronizeEntityComponent,
+    WaitingOnStackEntryComponent,
+    LockLinkComponent,
+    LockReportComponent
   ],
   imports: [
-    ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      {enableTracing: !environment.production} // <-- debugging purposes only
+      {enableTracing: false} // <-- debugging purposes only
     ),
     BrowserModule,
     BrowserAnimationsModule,
@@ -93,7 +99,8 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     MatListModule,
     MatTableModule,
-    MomentModule
+    MomentModule,
+    ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     UploadDialogComponent,
@@ -102,6 +109,7 @@ const appRoutes: Routes = [
     LockStackEntryComponent,
     LockedStackEntryComponent,
     WaitingToLockStackEntryComponent,
+    WaitingOnStackEntryComponent,
     LockOwnableSynchronizersEntityComponent,
     NoneLockSynchronizeEntityComponent,
     UnknowLockSynchronizeEntityComponent

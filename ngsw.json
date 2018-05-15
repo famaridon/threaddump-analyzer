@@ -9,10 +9,10 @@
       "urls": [
         "/threaddump-analyzer/favicon.ico",
         "/threaddump-analyzer/index.html",
-        "/threaddump-analyzer/inline.318b50c57b4eba3d437b.bundle.js",
-        "/threaddump-analyzer/main.4daff24743cdae6405eb.bundle.js",
-        "/threaddump-analyzer/polyfills.194f3db5c95bb635c66b.bundle.js",
-        "/threaddump-analyzer/styles.6cf910f85c3e208b018f.bundle.css"
+        "/threaddump-analyzer/main.ee2ea17864ec9cf33892.js",
+        "/threaddump-analyzer/polyfills.25d25ab61d2b4f2195d3.js",
+        "/threaddump-analyzer/runtime.6afe30102d8fe7337431.js",
+        "/threaddump-analyzer/styles.e782b2b9ab18c0a7ee9d.css"
       ],
       "patterns": []
     },
@@ -20,17 +20,54 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
-      "urls": [],
+      "urls": [
+        "/threaddump-analyzer/assets/icons/icon-128x128.png",
+        "/threaddump-analyzer/assets/icons/icon-144x144.png",
+        "/threaddump-analyzer/assets/icons/icon-152x152.png",
+        "/threaddump-analyzer/assets/icons/icon-192x192.png",
+        "/threaddump-analyzer/assets/icons/icon-384x384.png",
+        "/threaddump-analyzer/assets/icons/icon-512x512.png",
+        "/threaddump-analyzer/assets/icons/icon-72x72.png",
+        "/threaddump-analyzer/assets/icons/icon-96x96.png",
+        "/threaddump-analyzer/assets/logo/github-icon.svg"
+      ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/threaddump-analyzer/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
-    "/threaddump-analyzer/main.4daff24743cdae6405eb.bundle.js": "a3bd72a65dc0a2ba36740f8d5561704673e51e94",
-    "/threaddump-analyzer/polyfills.194f3db5c95bb635c66b.bundle.js": "2ead84e04b3e5402cb19b4ce19fdc5f97f599dd6",
-    "/threaddump-analyzer/styles.6cf910f85c3e208b018f.bundle.css": "6234c709d577b4e5a570cc03020984ab5c3b2077",
+    "/threaddump-analyzer/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/threaddump-analyzer/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/threaddump-analyzer/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/threaddump-analyzer/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/threaddump-analyzer/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/threaddump-analyzer/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/threaddump-analyzer/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/threaddump-analyzer/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/threaddump-analyzer/assets/logo/github-icon.svg": "582a9982d369e849b5f20bf8b7c5eabf6af6fe02",
     "/threaddump-analyzer/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/threaddump-analyzer/index.html": "29bbd87e61a6ce6df42e8c0d634ffda449bc862a"
-  }
+    "/threaddump-analyzer/index.html": "1cecb312115294520fa53341abfaf001e50537a5",
+    "/threaddump-analyzer/main.ee2ea17864ec9cf33892.js": "317d29defed903bd0d9544c2728cfa02f1fc5dd0",
+    "/threaddump-analyzer/polyfills.25d25ab61d2b4f2195d3.js": "405a5f6b7699ea1b9b95b0c1c81e0f25db3da7e1",
+    "/threaddump-analyzer/runtime.6afe30102d8fe7337431.js": "078e320cc6fdaf355836c3b1c52b059cdd33fc7e",
+    "/threaddump-analyzer/styles.e782b2b9ab18c0a7ee9d.css": "62a1f6dae89cee153ad3255de2e481ee14550400"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
 }

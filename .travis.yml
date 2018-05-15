@@ -11,6 +11,7 @@ branches:
 
 before_script:
   - npm install -g @angular/cli
+  - ng version
   - ng set --global packageManager=yarn
 
 script:

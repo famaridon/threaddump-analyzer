@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material';
 import {UploadDialogComponent} from '../upload-dialog/upload-dialog.component';
 import {StoreService} from '../../services/store.service';
 import {Router} from '@angular/router';
+import {VERSION} from '../../../environments/version';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,12 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  public readonly version: any;
+
   constructor(public storeService: StoreService,
               public dialog: MatDialog,
               public router: Router) {
+    this.version = VERSION;
 
   }
 

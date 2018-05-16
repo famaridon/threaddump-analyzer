@@ -7,10 +7,13 @@
       "files": [
         "/**/favicon.ico",
         "/**/index.html",
-        "/**/*.html",
         "/**/*.js",
-        "!/**/ngsw-worker.js",
-        "/**/*.css"
+        "/**/*.css",
+        "!/**/ngsw-worker.js"
+
+      ],
+      "urls": [
+        "https://fonts.googleapis.com/icon?family=Material+Icons|Roboto|Roboto+Mono"
       ]
     }
   }, {

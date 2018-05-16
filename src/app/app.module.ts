@@ -100,6 +100,7 @@ const appRoutes: Routes = [
     MatListModule,
     MatTableModule,
     MomentModule,
+    /* need to hard code start path --base-href is actually not supported https://github.com/angular/angular-cli/issues/8515 */
     ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [

@@ -6,52 +6,19 @@
       "name": "app",
       "installMode": "prefetch",
       "updateMode": "prefetch",
-      "urls": [
-        "/threaddump-analyzer/favicon.ico",
-        "/threaddump-analyzer/index.html",
-        "/threaddump-analyzer/main.81d3f260e12c787f13bd.js",
-        "/threaddump-analyzer/polyfills.25d25ab61d2b4f2195d3.js",
-        "/threaddump-analyzer/runtime.6afe30102d8fe7337431.js",
-        "/threaddump-analyzer/styles.e782b2b9ab18c0a7ee9d.css"
-      ],
+      "urls": [],
       "patterns": []
     },
     {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
-      "urls": [
-        "/threaddump-analyzer/assets/icons/icon-128x128.png",
-        "/threaddump-analyzer/assets/icons/icon-144x144.png",
-        "/threaddump-analyzer/assets/icons/icon-152x152.png",
-        "/threaddump-analyzer/assets/icons/icon-192x192.png",
-        "/threaddump-analyzer/assets/icons/icon-384x384.png",
-        "/threaddump-analyzer/assets/icons/icon-512x512.png",
-        "/threaddump-analyzer/assets/icons/icon-72x72.png",
-        "/threaddump-analyzer/assets/icons/icon-96x96.png",
-        "/threaddump-analyzer/assets/logo/github-icon.svg"
-      ],
+      "urls": [],
       "patterns": []
     }
   ],
   "dataGroups": [],
-  "hashTable": {
-    "/threaddump-analyzer/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "/threaddump-analyzer/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "/threaddump-analyzer/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "/threaddump-analyzer/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
-    "/threaddump-analyzer/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "/threaddump-analyzer/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "/threaddump-analyzer/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "/threaddump-analyzer/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
-    "/threaddump-analyzer/assets/logo/github-icon.svg": "582a9982d369e849b5f20bf8b7c5eabf6af6fe02",
-    "/threaddump-analyzer/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/threaddump-analyzer/index.html": "7158eaf0758bcabf36f8c54fd57dc8ca2eb327bc",
-    "/threaddump-analyzer/main.81d3f260e12c787f13bd.js": "2639d937d9641f4fef535a98ba69d1017da3c865",
-    "/threaddump-analyzer/polyfills.25d25ab61d2b4f2195d3.js": "6ea45e1973b9c4233eafc505437576a84ce6d272",
-    "/threaddump-analyzer/runtime.6afe30102d8fe7337431.js": "3fab19f079c43bf1bef142f8d13e36cc06418580",
-    "/threaddump-analyzer/styles.e782b2b9ab18c0a7ee9d.css": "62a1f6dae89cee153ad3255de2e481ee14550400"
-  },
+  "hashTable": {},
   "navigationUrls": [
     {
       "positive": true,

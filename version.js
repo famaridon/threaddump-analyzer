@@ -1,5 +1,5 @@
 const { gitDescribeSync } = require('git-describe');
-const { version } = require('./package.json');
+const { version, dependencies, name, repository } = require('./package.json');
 const { resolve, relative } = require('path');
 const { writeFileSync } = require('fs-extra');
 
@@ -9,6 +9,9 @@ const gitInfo = gitDescribeSync({
 });
 
 gitInfo.version = version;
+gitInfo.name = name;
+gitInfo.repository = repository;
+gitInfo.dependencies = dependencies;
 
 const file = resolve(__dirname, 'src', 'environments', 'version.ts');
 writeFileSync(file,

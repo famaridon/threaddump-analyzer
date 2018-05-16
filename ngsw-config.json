@@ -5,13 +5,12 @@
     "installMode": "prefetch",
     "resources": {
       "files": [
-        "/*/favicon.ico",
-        "/*/index.html"
-      ],
-      "versionedFiles": [
-        "/*/*.bundle.css",
-        "/*/*.bundle.js",
-        "/*/*.chunk.js"
+        "/**/favicon.ico",
+        "/**/index.html",
+        "/**/*.html",
+        "/**/*.js",
+        "!/**/ngsw-worker.js",
+        "/**/*.css"
       ]
     }
   }, {
@@ -20,7 +19,7 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "**/assets/**"
+        "/**/assets/**"
       ]
     }
   }]

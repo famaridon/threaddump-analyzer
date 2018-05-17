@@ -3,6 +3,7 @@ import {StoreService} from '../../services/store.service';
 import {Threaddump} from '../../services/parser/beans/threaddump';
 import {State} from '../../services/parser/beans/thread';
 import {Observable, Subscription} from 'rxjs/index';
+import {Router} from '@angular/router';
 
 export class MergedThreadItem {
   public readonly id: string;
@@ -28,12 +29,16 @@ export class MergedThreadsListComponent implements OnInit, OnDestroy {
   private _$threaddumps: Observable<Threaddump[]>;
   private _$threaddumpsSubscription: Subscription;
 
-  constructor(private storeService: StoreService) {
+  constructor(private storeService: StoreService,
+              private router: Router) {
   }
 
   ngOnInit() {
     this._$threaddumps = this.storeService.storage;
     this._$threaddumps.subscribe((threaddumps: Threaddump[]) => {
+      if (threaddumps.length === 0) {
+        this.router.navigate(['/']);
+      }
       this.items = new Promise<MergedThreadItem[]>((resolve) => {
 
         const items$ = new Map<string, MergedThreadItem>();

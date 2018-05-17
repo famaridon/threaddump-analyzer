@@ -49,6 +49,8 @@ import {WaitingOnStackEntryComponent} from './components/stack-entry/waiting-on-
 import { LockLinkComponent } from './components/lock-link/lock-link.component';
 import { LockReportComponent } from './components/lock-report/lock-report.component';
 import {VERSION} from '../environments/version';
+import {LockAnalyserService} from './services/lock-analyser.service';
+import { ThreadLinkComponent } from './components/thread-link/thread-link.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -78,7 +80,8 @@ const appRoutes: Routes = [
     UnknowLockSynchronizeEntityComponent,
     WaitingOnStackEntryComponent,
     LockLinkComponent,
-    LockReportComponent
+    LockReportComponent,
+    ThreadLinkComponent
   ],
   imports: [
     FormsModule,
@@ -118,7 +121,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     ParserService,
-    StoreService
+    StoreService,
+    LockAnalyserService
   ],
   bootstrap: [AppComponent]
 })

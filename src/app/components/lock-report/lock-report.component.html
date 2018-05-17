@@ -1,12 +1,27 @@
 <mat-tab-group>
   <ng-container *ngFor="let threaddump of $threaddumpList | async">
-    <mat-tab>
+    <mat-tab [disabled]="!getLockReport(threaddump)">
       <ng-template mat-tab-label>
         {{threaddump.date | amDateFormat:'hh:mm:ss' }}
       </ng-template>
-      <mat-card ><!-- *ngIf="getLock(threaddump); let lock" -->
+      <mat-card *ngIf="getLockReport(threaddump); let lockReport">
         <mat-card-content>
-          TODO : build lock report and display it
+          <div>
+            owner :
+          <app-thread-link [thread]="lockReport.owner" [threaddump]="threaddump"></app-thread-link>
+          </div>
+          waitingToLock
+          <ul>
+            <li *ngFor="let thread of lockReport.waitingToLock">
+              <app-thread-link [thread]="thread" [threaddump]="threaddump"></app-thread-link>
+            </li>
+          </ul>
+          waitingOn
+          <ul>
+            <li *ngFor="let thread of lockReport.waitingOn">
+              <app-thread-link [thread]="thread" [threaddump]="threaddump"></app-thread-link>
+            </li>
+          </ul>
         </mat-card-content>
       </mat-card>
     </mat-tab>

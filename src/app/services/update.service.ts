@@ -17,9 +17,6 @@ export class UpdateService {
           window.location.reload();
         });
 
-      snack.setTimeout(() => {
-        snack.dismiss();
-      }, 6000);
     });
   }
 }

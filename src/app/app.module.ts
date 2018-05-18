@@ -53,6 +53,7 @@ import {VERSION} from '../environments/version';
 import {LockAnalyserService} from './services/lock-analyser.service';
 import { ThreadLinkComponent } from './components/thread-link/thread-link.component';
 import { VersionComponent } from './components/version/version.component';
+import {UpdateService} from './services/update.service';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -126,7 +127,8 @@ const appRoutes: Routes = [
   providers: [
     ParserService,
     StoreService,
-    LockAnalyserService
+    LockAnalyserService,
+    UpdateService
   ],
   bootstrap: [AppComponent]
 })

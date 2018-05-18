@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {ParserService, Threaddump} from './services/parser.service';
-import {MatDialog} from '@angular/material';
-import {StoreService} from './services/store.service';
+import {UpdateService} from './services/update.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +8,8 @@ import {StoreService} from './services/store.service';
 })
 export class AppComponent {
 
-  public threaddumps: Threaddump[] = [];
-  public selectedThreaddump: Threaddump;
 
-  constructor() {
+  constructor(private update: UpdateService) {
   }
 
 

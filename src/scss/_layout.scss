@@ -15,6 +15,10 @@ mat-sidenav-container {
   font-family: 'Roboto Mono', monospace;
 }
 
+.update-button.mat-button[disabled][disabled] {
+  color: mat-color($mat-dark-theme-foreground, base);
+}
+
 .floating-actions {
   position: absolute;
   bottom: 24px;

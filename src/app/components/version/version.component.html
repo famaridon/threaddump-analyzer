@@ -1,0 +1,1 @@
+<button class="update-button" mat-button (click)="checkForUpdate()" [disabled]="!swUpdate.isEnabled">{{version.version}}&nbsp;<mat-icon *ngIf="swUpdate.isEnabled" aria-label="icon-button">update</mat-icon></button>

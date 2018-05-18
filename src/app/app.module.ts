@@ -19,7 +19,8 @@ import {
   MatProgressSpinnerModule,
   MatListModule,
   MatTableModule,
-  MatCardModule
+  MatCardModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import {MomentModule} from 'angular2-moment';
@@ -51,6 +52,7 @@ import { LockReportComponent } from './components/lock-report/lock-report.compon
 import {VERSION} from '../environments/version';
 import {LockAnalyserService} from './services/lock-analyser.service';
 import { ThreadLinkComponent } from './components/thread-link/thread-link.component';
+import { VersionComponent } from './components/version/version.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -81,7 +83,8 @@ const appRoutes: Routes = [
     WaitingOnStackEntryComponent,
     LockLinkComponent,
     LockReportComponent,
-    ThreadLinkComponent
+    ThreadLinkComponent,
+    VersionComponent
   ],
   imports: [
     FormsModule,
@@ -103,6 +106,7 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     MatListModule,
     MatTableModule,
+    MatSnackBarModule,
     MomentModule,
     /* need to hard code start path --base-href is actually not supported https://github.com/angular/angular-cli/issues/8515 */
     ServiceWorkerModule.register(`/${VERSION.name}/ngsw-worker.js`, { enabled: environment.production })

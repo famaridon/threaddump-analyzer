@@ -24,8 +24,7 @@ export class UpdateService {
 
     });
     this.swUpdate.activated.subscribe(event => {
-      const snack = this.snackbar.open('Application updated', snackBarConfig);
-
+      this.snackbar.open('Application updated', '', snackBarConfig);
     });
   }
 }

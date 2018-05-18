@@ -22,6 +22,8 @@ export class VersionComponent implements OnInit {
   checkForUpdate(): void {
     this.swUpdate.checkForUpdate().then(evt => {
       console.log('update available');
+    }).catch( error => {
+      console.log('no update found');
     });
   }
 

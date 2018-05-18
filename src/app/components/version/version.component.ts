@@ -10,7 +10,6 @@ import {SwUpdate} from '@angular/service-worker';
 export class VersionComponent implements OnInit {
 
   public readonly version: any;
-  public readonly version: any;
 
   constructor(public readonly swUpdate: SwUpdate) {
     this.version = VERSION;

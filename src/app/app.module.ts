@@ -48,6 +48,9 @@ import {UnknowLockSynchronizeEntityComponent} from './components/lock-synchroniz
 import {WaitingOnStackEntryComponent} from './components/stack-entry/waiting-on-stack-entry/waiting-on-stack-entry.component';
 import { LockLinkComponent } from './components/lock-link/lock-link.component';
 import { LockReportComponent } from './components/lock-report/lock-report.component';
+import {VERSION} from '../environments/version';
+import {LockAnalyserService} from './services/lock-analyser.service';
+import { ThreadLinkComponent } from './components/thread-link/thread-link.component';
 
 const appRoutes: Routes = [
   {path: '', component: HelpComponent},
@@ -77,7 +80,8 @@ const appRoutes: Routes = [
     UnknowLockSynchronizeEntityComponent,
     WaitingOnStackEntryComponent,
     LockLinkComponent,
-    LockReportComponent
+    LockReportComponent,
+    ThreadLinkComponent
   ],
   imports: [
     FormsModule,
@@ -101,7 +105,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MomentModule,
     /* need to hard code start path --base-href is actually not supported https://github.com/angular/angular-cli/issues/8515 */
-    ServiceWorkerModule.register('/threaddump-analyzer/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register(`/${VERSION.name}/ngsw-worker.js`, { enabled: environment.production })
   ],
   entryComponents: [
     UploadDialogComponent,
@@ -117,7 +121,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     ParserService,
-    StoreService
+    StoreService,
+    LockAnalyserService
   ],
   bootstrap: [AppComponent]
 })

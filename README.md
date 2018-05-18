@@ -15,9 +15,11 @@ https://famaridon.github.io/threaddump-analyzer/
 * Parse thread dump files 
 * Display multiple thread dump in merged view
 * Navigate to thread 
-* Navigate to lock report
+* Navigate to lock report (TODO)
  * display all thread waiting for this lock
  * display lock owner
+ * display if lock is present in other threaddump
+* Implement PWA (Progressive Web Apps) to be available offline
 
 ## Development server
 

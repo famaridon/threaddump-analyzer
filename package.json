@@ -1,12 +1,13 @@
 {
   "name": "threaddump-analyzer",
-  "version": "1.4.5",
+  "version": "1.4.8",
   "license": "LGPL-3.0",
   "scripts": {
     "ng": "ng",
     "version": "node version.js",
     "start": "yarn run version && ng serve --aot",
     "build": "yarn run version && ng build --prod --aot --base-href /threaddump-analyzer/",
+    "sw-start": "yarn run version & ng build --prod --aot --base-href /threaddump-analyzer/ --output-path dist/threaddump-analyzer & cd dist & http-server -p 8080",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

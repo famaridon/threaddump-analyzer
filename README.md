@@ -7,6 +7,7 @@ But when you have a long threaddump and / or multiple files it become really har
 This tool aim to build user friendly interface to help developers brain :smirk:.
 
 ## Build status 
+
 master : [![Build Status](https://travis-ci.org/famaridon/threaddump-analyzer.svg?branch=master)](https://travis-ci.org/famaridon/threaddump-analyzer)
 develop : [![Build Status](https://travis-ci.org/famaridon/threaddump-analyzer.svg?branch=develop)](https://travis-ci.org/famaridon/threaddump-analyzer)
 
@@ -35,18 +36,13 @@ I try a lot of tools :
 
 ## Development
 
-[![Dependency Status][david-badge]][david-badge-url]
-[![devDependency Status][david-dev-badge]][david-dev-badge-url]
-
-[![npm](https://img.shields.io/npm/v/npm.svg)][npm-badge-url]
-
 ### Prerequisites
 
 All version are only for indication of my current environment. 
 
-NodeJs 9.5.0 +
-Angular CLI 6.0.1 +
-Yarn 1.3.5 +
+* [NodeJs 9.5.0 +](https://nodejs.org/en/download/current/)
+* [Angular CLI 6.0.1 +](https://github.com/angular/angular-cli)
+* [Yarn 1.6.0 +](https://yarnpkg.com/en/docs/install#windows-stable)
 
 ### Build and start 
 Run `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

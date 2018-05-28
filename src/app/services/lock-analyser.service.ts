@@ -31,6 +31,10 @@ export class LockAnalyserService {
       if (thread.waitingOn === lock) {
         lockReport.waitingOn.push(thread);
       }
+
+      if (thread.parkingToWaitFor === lock) {
+        lockReport.parkingToWaitFor.push(thread);
+      }
     });
 
     return lockReport;
@@ -44,6 +48,7 @@ export class LockReport {
   private _owner: Thread;
   public readonly waitingToLock: Thread[] = [];
   public readonly waitingOn: Thread[] = [];
+  public readonly parkingToWaitFor: Thread[] = [];
 
   constructor(threaddump: Threaddump) {
     this.threaddump = threaddump;

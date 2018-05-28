@@ -17,6 +17,7 @@ export class Thread {
   public locked: string[] = [];
   public waitingToLock: string;
   public waitingOn: string;
+  public parkingToWaitFor: string;
 }
 
 export enum State {

@@ -2,7 +2,7 @@ import {ThreadParseStage} from '../thread-parse-stage';
 import {Thread} from '../../beans/thread';
 import {
   AtStackEntry,
-  LockedStackEntry,
+  LockedStackEntry, ParkingToWaitForStackEntry,
   StackEntry,
   UnknowStackEntry,
   WaitingOnStackEntry,
@@ -24,6 +24,9 @@ export class ThreadStackParserStage implements ThreadParseStage {
 
   public static readonly THREAD_WAINTING_ON_STACK_DETECT_REGEX = /^\s*- waiting on <[0-9a-z]*>/;
   public static readonly THREAD_WAINTING_ON_STACK_PARSE_REGEX = /^\s*-\s*waiting on <([0-9a-z]*)> \(a (.*)\)/;
+
+  public static readonly THREAD_PARKING_TO_WAIT_FOR_STACK_DETECT_REGEX = /^\s*- parking to wait for\s*<[0-9a-z]*>/;
+  public static readonly THREAD_PARKING_TO_WAIT_FOR_STACK_PARSE_REGEX = /^\s*-\s*parking to wait for\s*<([0-9a-z]*)> \(a (.*)\)/;
 
   private nextThreadParseStage: ThreadParseStage;
 
@@ -59,6 +62,11 @@ export class ThreadStackParserStage implements ThreadParseStage {
       const lockedStackEntry = new WaitingOnStackEntry(line, parsed[1], parsed[2]);
       stackEntry = lockedStackEntry;
       thread.waitingOn = lockedStackEntry.lock;
+    } else if (ThreadStackParserStage.THREAD_PARKING_TO_WAIT_FOR_STACK_DETECT_REGEX.test(line)) {
+      const parsed = ThreadStackParserStage.THREAD_PARKING_TO_WAIT_FOR_STACK_PARSE_REGEX.exec(line);
+      const parkingToWaitFor = new ParkingToWaitForStackEntry(line, parsed[1], parsed[2]);
+      stackEntry = parkingToWaitFor;
+      thread.parkingToWaitFor = parkingToWaitFor.lock;
     } else {
       console.error(`Can't parse stack line: ${line}`);
       stackEntry = new UnknowStackEntry(line);

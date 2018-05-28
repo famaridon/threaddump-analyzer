@@ -2,7 +2,7 @@ import {Component, ComponentFactoryResolver, Input, OnInit, Type, ViewChild} fro
 import {StackEntryHostDirective} from './stack-entry-host.directive';
 import {
   AtStackEntry,
-  LockedStackEntry,
+  LockedStackEntry, ParkingToWaitForStackEntry,
   StackEntry,
   WaitingOnStackEntry,
   WaitingToLockStackEntry
@@ -13,6 +13,7 @@ import {LockedStackEntryComponent} from './locked-stack-entry/locked-stack-entry
 import {WaitingToLockStackEntryComponent} from './waiting-to-lock-stack-entry/waiting-to-lock-stack-entry.component';
 import {AbstractStackEntryComponent} from './abstract-stack-entry.component';
 import {WaitingOnStackEntryComponent} from './waiting-on-stack-entry/waiting-on-stack-entry.component';
+import {ParkingToWaitForStackEntryComponent} from './parking-to-wait-for-stack-entry/parking-to-wait-for-stack-entry.component';
 
 @Component({
   selector: 'app-stack-entry',
@@ -48,6 +49,8 @@ export class StackEntryComponent implements OnInit {
       return WaitingToLockStackEntryComponent;
     } else if (this.stackEntry instanceof WaitingOnStackEntry) {
       return WaitingOnStackEntryComponent;
+    } else if (this.stackEntry instanceof ParkingToWaitForStackEntry) {
+      return ParkingToWaitForStackEntryComponent;
     } else {
       console.error(`No display component found for ${this.stackEntry.content}`);
       return UnknowStackEntryComponent;

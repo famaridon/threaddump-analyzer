@@ -1,1 +1,7 @@
-<button class="update-button" mat-button (click)="checkForUpdate()" [disabled]="!swUpdate.isEnabled">{{version.version}}&nbsp;<mat-icon *ngIf="swUpdate.isEnabled" aria-label="icon-button">update</mat-icon></button>
+<ng-container *ngIf="updateAvailable; else check_for_update">
+  <button class="update-button" mat-button (click)="update()" >{{version.version}}&nbsp;<mat-icon aria-label="icon-button">system_update</mat-icon></button>
+</ng-container>
+
+<ng-template #check_for_update>
+  <button class="update-button" mat-button (click)="checkForUpdate()" [disabled]="!swUpdate.isEnabled">{{version.version}}&nbsp;<mat-icon *ngIf="swUpdate.isEnabled" aria-label="icon-button">update</mat-icon></button>
+</ng-template>

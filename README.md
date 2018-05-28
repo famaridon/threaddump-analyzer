@@ -18,17 +18,24 @@ Last stable version is available here : https://famaridon.github.io/threaddump-a
 ## Why this project ?
 
 I try a lot of tools :
+  * [Samurai](http://samuraism.jp/samurai/en/index.html) my favorite tool
+    * Really good view and navigation
+    * Many crashes and ui latencies 
+    
   * [Spotify threaddump-analyzer](https://spotify.github.io/threaddump-analyzer/)
     * It's a very fast tool but don't support multiple files. 
     * It's hard to read result with long thread dump.
-  * 
+    
+  * [fastthread.io](http://fastthread.io/)
+    * need to upload my threaddump to an untrusted server.
+    * never get a result.
 
 ## Features
 
 * Parse thread dump files 
 * Display multiple thread dump in merged view
 * Navigate to thread 
-* Navigate to lock report (TODO)
+* Navigate to lock report
  * display all thread waiting for this lock
  * display lock owner
  * display if lock is present in other threaddump
@@ -40,12 +47,18 @@ I try a lot of tools :
 
 All version are only for indication of my current environment. 
 
-* [NodeJs 9.5.0 +](https://nodejs.org/en/download/current/)
+* [NodeJs 10.2.1](https://nodejs.org/en/download/current/)
 * [Angular CLI 6.0.1 +](https://github.com/angular/angular-cli)
 * [Yarn 1.6.0 +](https://yarnpkg.com/en/docs/install#windows-stable)
 
 ### Build and start 
-Run `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `yarn start` for a dev server. Open a browser at http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+### Build for production
+Run `yarn build` will build application in dist folder.
+
+All is build to run in a sub path /threaddump-analyzer this is to simplify gh-page deployment. 
+If you need to test production environment on localhost run `yarn start sw-start` and open http://localhost:8080/threaddump-analyzer
 
 
 ## Authors
